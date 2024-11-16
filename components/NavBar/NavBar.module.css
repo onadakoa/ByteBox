@@ -1,5 +1,43 @@
 .container {
-    min-height: 125px;
+    height: 125px;
     border-bottom: 2px solid var(--stroke-color);
     box-sizing: border-box;
+
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 0px 50px;
+}
+
+.logoContainer {
+    justify-self: left;
+    position: relative;
+    width: 200px;
+    height: 100px;
+}
+
+.iconsContainer {
+    justify-self: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+
+    >a>span {
+        font-size: 40px;
+    }
+}
+
+@media (width <=1000px) {
+    .logoContainer {
+        width: 100px;
+    }
+
+    .iconsContainer>a>span {
+        font-size: 35px;
+    }
 }

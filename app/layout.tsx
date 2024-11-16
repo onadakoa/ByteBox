@@ -5,7 +5,6 @@ import "material-symbols";
 
 
 
-
 export const metadata: Metadata = {
     title: "ByteBox",
 }
