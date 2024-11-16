@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 
 import "./globals.css";
+import "material-symbols";
+
 
 
 

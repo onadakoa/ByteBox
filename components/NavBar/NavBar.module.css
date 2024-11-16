@@ -1,0 +1,5 @@
+.container {
+    min-height: 125px;
+    border-bottom: 2px solid var(--stroke-color);
+    box-sizing: border-box;
+}
