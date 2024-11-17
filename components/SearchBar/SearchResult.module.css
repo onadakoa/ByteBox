@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: min-content 1fr max-content;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.container:hover {
+    background-color: #00000010;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.text {
+    padding: 0 10px;
+    font-size: 0.9rem;
+    /* overflow: hidden; */
+}
+
+.price {
+    text-align: right;
+}

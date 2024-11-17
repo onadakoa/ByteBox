@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 
 export type SymbolType = "outlined" | "rounded" | "sharp";
 
@@ -7,9 +8,11 @@ export default function Symbol(props: {
     FILL?: boolean
     wght?: number,
     GRAD?: number,
-    opsz?: number
+    opsz?: number,
+    fontSize?: string,
 }) {
-    const style = {
+    const style: CSSProperties = {
+        fontSize: props.fontSize,
         fontVariationSettings: `
         'FILL' ${Number(props.FILL || false)},
         'wght' ${props.wght || 400},

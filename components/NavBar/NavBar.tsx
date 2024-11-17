@@ -2,6 +2,7 @@ import Link from "next/link"
 import css from "./NavBar.module.css"
 import Symbol from "../MaterialSymbols/Symbol"
 import Logo from "../Logo/Logo"
+import SearchBar from "../SearchBar/SearchBar"
 
 
 export default function NavBar() {
@@ -12,7 +13,9 @@ export default function NavBar() {
                 <Logo />
             </Link>
         </div>
-        <div>middle</div>
+        <div>
+            <SearchBar />
+        </div>
         <div className={css.iconsContainer}>
             <Link href={"/"}>
                 <Symbol>account_circle</Symbol>
