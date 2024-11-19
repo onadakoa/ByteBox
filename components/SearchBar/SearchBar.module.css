@@ -88,3 +88,16 @@
     overflow: hidden;
 
 }
+
+@media (width < 1300px) {
+    .searchContainer>input {
+        width: 50ch;
+    }
+}
+
+@media (width < 1000px) {
+    .searchContainer>input {
+        width: 30ch;
+    }
+
+}

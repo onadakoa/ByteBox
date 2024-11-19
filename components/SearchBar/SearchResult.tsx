@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Symbol from "../MaterialSymbols/Symbol"
 import css from "./SearchResult.module.css"
 import { Poppins, Roboto } from "next/font/google"
@@ -15,18 +16,21 @@ export default function Result(props: {
     type: ResultType,
     phrase: string,
     price?: string,
-    onClick?: () => void,
+    currency?: string,
+    href?: string,
 }) {
 
-    return (<div className={css.container} onClick={props.onClick} tabIndex={2}>
-        <div className={css.logo}>
-            <Symbol fontSize="2rem">{props.type}</Symbol>
-        </div>
-        <div className={css.text}>
-            <span className={roboto.className}>{props.phrase}</span>
-        </div>
-        <div className={css.price}>
-            <span className={robotoPrice.className}>{props.price || ""}</span>
-        </div>
-    </div>)
+    return (
+        <Link href={props.href || "/"} className={css.container} >
+            <div className={css.logo}>
+                <Symbol fontSize="2rem">{props.type}</Symbol>
+            </div>
+            <div className={css.text}>
+                <span className={roboto.className}>{props.phrase}</span>
+            </div>
+            <div className={css.price}>
+                <span className={robotoPrice.className}>{props.price || ""} {(props.price) ? (props.currency || "zł") : ""}</span>
+            </div>
+        </Link>
+    )
 }
