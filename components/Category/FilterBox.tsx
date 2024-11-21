@@ -7,7 +7,7 @@ import { useActionState, useEffect, useState } from "react";
 import FilterBoxPrice from "./FilterBoxPrice";
 import { useRouter, useSearchParams } from "next/navigation";
 import FilterBoxSubmit from "./FilterBoxSubmit";
-const poppins = Poppins({ weight: "400" })
+const poppins = Poppins({ weight: "400", subsets: ["latin"] })
 
 export default function CategoryBox() {
     const router = useRouter();

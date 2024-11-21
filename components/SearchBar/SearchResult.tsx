@@ -3,8 +3,8 @@ import Symbol from "../MaterialSymbols/Symbol"
 import css from "./SearchResult.module.css"
 import { Poppins, Roboto } from "next/font/google"
 
-const roboto = Roboto({ weight: "400" })
-const robotoPrice = Roboto({ weight: "700" })
+const roboto = Roboto({ weight: "400", subsets: ["latin"] })
+const robotoPrice = Roboto({ weight: "700", subsets: ["latin"] })
 
 export enum ResultType {
     "search" = "search",

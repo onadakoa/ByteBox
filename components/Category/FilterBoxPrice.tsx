@@ -3,7 +3,7 @@ import { useRef } from "react"
 import css from "./FilterBoxPrice.module.css"
 import { Roboto } from "next/font/google"
 
-const roboto = Roboto({ weight: "100" })
+const roboto = Roboto({ weight: "100", subsets: ["latin"] })
 
 export default function FilterBoxPrice(
     props: {

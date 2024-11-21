@@ -6,7 +6,7 @@ import Symbol from "../MaterialSymbols/Symbol"
 import Result, { ResultType } from "./SearchResult"
 import { useRouter, useSearchParams } from "next/navigation"
 
-const poppins = Poppins({ weight: "400" })
+const poppins = Poppins({ weight: "400", subsets: ["latin"] })
 
 export default function SearchBar() {
     const searchParams = useSearchParams();

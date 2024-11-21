@@ -3,6 +3,7 @@ import css from "./NavBar.module.css"
 import Symbol from "../MaterialSymbols/Symbol"
 import Logo from "../Logo/Logo"
 import SearchBar from "../SearchBar/SearchBar"
+import { Suspense } from "react"
 
 
 export default function NavBar() {
@@ -14,7 +15,9 @@ export default function NavBar() {
             </Link>
         </div>
         <div>
-            <SearchBar />
+            <Suspense>
+                <SearchBar />
+            </Suspense>
         </div>
         <div className={css.iconsContainer}>
             <Link href={"/"}>

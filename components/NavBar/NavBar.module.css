@@ -25,11 +25,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+}
 
-
-    >a>span {
-        font-size: 2.2rem;
-    }
+.iconsContainer>a>span {
+    font-size: 2.2rem;
 }
 
 
