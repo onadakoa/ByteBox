@@ -1,0 +1,14 @@
+.container {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15px;
+
+    width: 260px;
+}
+
+.container>div {
+    width: 100%;
+}

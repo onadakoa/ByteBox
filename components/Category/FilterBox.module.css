@@ -1,0 +1,12 @@
+.container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: var(--feed-shadow);
+
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

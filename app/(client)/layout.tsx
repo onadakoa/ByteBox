@@ -6,6 +6,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (<>
         <NavBar />
-        {children}
+        <main style={{ padding: "30px 50px" }}>
+            {children}
+        </main>
     </>)
 }

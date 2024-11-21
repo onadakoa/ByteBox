@@ -9,10 +9,15 @@
 
     --shadow-color: #00000040;
 
+    --feed-shadow: 0px 0px 30px var(--shadow-color);
+
     --stroke-color: #D4D4D4;
 }
 
+
+
 body {
+    background-color: var(--background-color);
     margin: 0px;
 }
 

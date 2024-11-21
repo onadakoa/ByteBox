@@ -1,0 +1,28 @@
+.container {
+    padding: 5px;
+
+}
+
+.container>input {
+    box-shadow: none;
+    border: 0;
+    appearance: none;
+    overlay: none;
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 3px;
+
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.container>input:hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--primary-color) 90%, white 10%);
+}

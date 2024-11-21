@@ -1,14 +1,18 @@
 "use client"
-import { ChangeEvent, CSSProperties, useRef, useState } from "react"
+import { ChangeEvent, CSSProperties, useEffect, useRef, useState } from "react"
 import css from "./SearchBar.module.css"
 import { Poppins } from "next/font/google"
 import Symbol from "../MaterialSymbols/Symbol"
 import Result, { ResultType } from "./SearchResult"
+import { useRouter, useSearchParams } from "next/navigation"
 
 const poppins = Poppins({ weight: "400" })
 
 export default function SearchBar() {
-    const [value, setValue] = useState("");
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    const [value, setValue] = useState(searchParams.get("search") || "");
     const [isInputFocused, setFocus] = useState(false);
 
     const searchContainer = useRef<HTMLDivElement>(null)
@@ -16,6 +20,14 @@ export default function SearchBar() {
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
     }
+    const onSearch = () => {
+        let query = new URLSearchParams(searchParams.toString())
+        query.set("search", value.trim());
+        router.push("/?" + query.toString())
+    }
+    useEffect(() => {
+        setValue(searchParams.get("search") || "")
+    }, [searchParams.toString()])
 
     const popupStyle: CSSProperties = {
         width: `${(searchContainer.current?.clientWidth || 100) - 10}px`,
@@ -28,13 +40,14 @@ export default function SearchBar() {
                 <label>
                     <div className={[css.searchContainer, poppins.className].join(" ")}>
                         <input type="text" value={value} onChange={onChange} placeholder="Search..."
+                            onKeyDown={(e) => { if (e.key == "Enter") onSearch() }}
                             onFocus={() => { setFocus(true) }}
                             onBlur={() => { setFocus(false) }}
                             tabIndex={1}
                         />
                     </div>
                 </label>
-                <div className={css.searchButton}>
+                <div className={css.searchButton} onClick={onSearch}>
                     <Symbol>search</Symbol>
                 </div>
             </div>
