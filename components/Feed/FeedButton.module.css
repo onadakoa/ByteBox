@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    height: 35px;
+    color: white;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    font-size: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container:hover {
+    cursor: pointer;
+}
+
+.container.active {
+    background: var(--primary-color);
+}
+.container.active:hover {
+     background-color: color-mix(in srgb,var(--primary-color) 90%, #ffffff 10%);
+}
+
+.container.unavailable {
+    background-color: transparent;
+    color: black;
+    border: 1px solid var(--primary-color);
+}
+.container.unavailable:hover {
+    background-color: color-mix(in srgb,transparent 90%, black 10%);
+}

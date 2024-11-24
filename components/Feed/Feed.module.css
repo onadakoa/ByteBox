@@ -1,0 +1,41 @@
+.container {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    width: 200px;
+    box-shadow: var(--feed-shadow);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.top>span {
+    font-size: 0.9rem;
+    line-height: 1.0rem;
+}
+.top>div {
+    height: 150px;
+
+    width: 100%;
+    position: relative;
+    background: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 5px;
+}
