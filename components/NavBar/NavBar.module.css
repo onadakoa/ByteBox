@@ -1,8 +1,12 @@
 .container {
+    background-color: var(--background-color);
+    z-index: 2;
     height: 125px;
     border-bottom: 2px solid var(--stroke-color);
     box-sizing: border-box;
 
+    position: sticky;
+    top: 0px;
 
     display: grid;
     align-items: center;
