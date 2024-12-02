@@ -23,7 +23,7 @@ export default function NavBar() {
             <Link href={"/"}>
                 <Symbol>account_circle</Symbol>
             </Link>
-            <Link href={"/"}>
+            <Link href={"/cart"}>
                 <Symbol>shopping_cart</Symbol>
             </Link>
         </div>

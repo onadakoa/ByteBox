@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 5px;
+}
+.container:hover {
+    cursor: pointer;
+}

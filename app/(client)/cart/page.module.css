@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.cart_container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.upper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+}
+.upper>span {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.upper>div {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+.upper>div>div:hover {
+    filter: drop-shadow(0px 0px 7px color-mix(in srgb, var(--shadow-color) 60%, black 50% ));
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+}
+
+@media (width < 1250px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
