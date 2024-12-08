@@ -33,7 +33,7 @@ export default function CheckOut(props: {
             <ListItem title={"Do zapłaty:"} value={"1,500zł"}/>
         </div>
         <PossiblyLink href={props.href}>
-            <Button backgroundColor={""} onClick={props.onClick}>Do Zapłaty</Button>
+            <Button backgroundColor={""} onClick={props.onClick}>Do kasy</Button>
         </PossiblyLink>
     </div>)
 }

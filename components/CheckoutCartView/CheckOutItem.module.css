@@ -1,0 +1,60 @@
+.container {
+    --image-size: 150px;
+
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: var(--feed-shadow);
+
+    display: grid;
+    grid-template-columns: var(--image-size) 1fr;
+    gap: 15px;
+}
+
+.imageContainer {
+    width: var(--image-size);
+    height: var(--image-size);
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: flex-start;
+}
+
+.description span {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.delete {
+    height: max-content;
+}
+
+.delete:hover {
+    filter: drop-shadow(0px 0px 10px var(--shadow-color));
+    cursor: pointer;
+}
+
+
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action > div > span {
+    font-weight: 700;
+    font-size: 1.4rem;
+}

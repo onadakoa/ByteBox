@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.container > div {
+    background-color: var(--background-color);
+    padding: 5px 10px;
+    border: 2px solid var(--stroke-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container > div:nth-child(2n+1) {
+    min-width: 35px;
+    user-select: none;
+}
+
+.container > div:nth-child(2n+1):hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, var(--background-color) 90%, black 10%);
+}
