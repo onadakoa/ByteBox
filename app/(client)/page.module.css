@@ -1,7 +1,9 @@
 .container {
+    margin: auto;
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: max-content auto;
     justify-items: center;
     align-items: flex-start;
     gap: 30px;
+    width: fit-content;
 }
