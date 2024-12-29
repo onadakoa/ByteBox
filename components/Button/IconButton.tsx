@@ -1,14 +1,12 @@
 import React, {CSSProperties, JSXElementConstructor} from "react";
 import css from "./IconButton.module.css"
 
-interface IIconButton {
-    children: React.ReactNode;
-    icon: React.ReactNode;
-    icon_position?: "left" | "right";
-    onClick?: () => void;
-}
-
-const IconButton: React.FunctionComponent<IIconButton> = (props) => {
+const IconButton = (props: {
+    children: React.ReactNode,
+    icon: React.ReactNode,
+    icon_position?: "left" | "right",
+    onClick?: () => void,
+}) => {
 
     const style: CSSProperties = {
         flexDirection: "row"

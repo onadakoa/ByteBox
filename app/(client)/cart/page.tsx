@@ -21,13 +21,17 @@ export default function Page() {
                                 fontSize={"1.5rem"}
                                 wght={200}
                             >delete_forever</Symbol>
-                        )}>Usuń Wszystko</IconButton>
+                        )}
+                        onClick={undefined}
+                    >Usuń Wszystko</IconButton>
                 </div>
             </div>
             <div className={css.content}>
                 <div className={css.itemList}>
-                    <CheckOutItem/>
-                    <CheckOutItem/>
+                    <CheckOutItem price={"302.99"} quantity={3} title={"amongus table oppo skibidi"}/>
+                    <CheckOutItem price={"1,235.99"} quantity={1} title={"toilet"}
+                                  imageURL={"https://upload.wikimedia.org/wikipedia/commons/b/b9/Smart_Toilet_Seat.jpg"}
+                    />
                 </div>
                 <div className={css.checkout}>
                     <CheckOut price={"1313"}/>

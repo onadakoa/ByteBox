@@ -10,28 +10,37 @@ import {useState} from "react";
 const poppins = Poppins({subsets: ["latin"], weight: ["400", "600", "300"]})
 const roboto = Roboto({subsets: ["latin"], weight: ["500", "900", "700", "400"]})
 
-export default function CheckOutItem(props: {}) {
-    const [quantity, setQuantity] = useState(2);
-    const onQuantitySet = (nprice: number) => {
-        if (nprice <= 0) return;
-        setQuantity(nprice)
+export default function CheckOutItem(props: {
+    title?: string,
+    imageURL?: string,
+    price: string,
+    quantity: number,
+    OnQuantityChange?: (quantity: number) => void,
+    OnDelete?: () => void,
+}) {
+    const [quantity, setQuantity] = useState(props.quantity || 2);
+    const onQuantitySet = (nQuantity: number) => {
+        if (nQuantity <= 0) return;
+        setQuantity(nQuantity);
+        if (props.OnQuantityChange != undefined)
+            props.OnQuantityChange(nQuantity);
     }
 
     return (
         <div className={css.container}>
             <div className={css.imageContainer}>
-                <Image src={"https://placehold.co/600x600"} alt={"image of product"} fill={true}/>
+                <Image src={props.imageURL || "https://placehold.co/600x600"} alt={"picture of product"} fill={true}/>
             </div>
             <div className={css.content}>
                 <div className={css.description}>
-                    <div><span className={poppins.className}>Tablet oppo</span></div>
-                    <div className={css.delete}>
+                    <div><span className={poppins.className}>{props.title || "NONE"}</span></div>
+                    <div className={css.delete} onClick={props.OnDelete}>
                         <Symbol wght={100} fontSize={"2.3rem"}>delete</Symbol>
                     </div>
                 </div>
                 <div className={css.action}>
                     <div>
-                        <span className={roboto.className}>309zł</span>
+                        <span className={roboto.className}>{props.price}zł</span>
                     </div>
                     <QuantitySelector value={quantity} setValue={onQuantitySet}/>
                 </div>
