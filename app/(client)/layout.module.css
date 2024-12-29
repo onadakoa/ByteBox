@@ -1,0 +1,11 @@
+.container {
+    padding: 30px 50px;
+    box-sizing: border-box;
+}
+
+@media (width <= 800px) {
+    .container {
+        box-sizing: border-box;
+        padding: 25px 5px;
+    }
+}

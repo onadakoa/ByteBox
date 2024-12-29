@@ -6,10 +6,23 @@
     align-items: flex-start;
     gap: 30px;
     flex-wrap: wrap;
+
 }
 
 .container > div {
     flex-basis: 200px;
     flex-grow: 1;
     max-width: 300px;
+}
+
+@media (width <= 768px) {
+    .container {
+        column-gap: 10px;
+        box-sizing: border-box;
+    }
+
+    .container > div {
+        flex-basis: 100px;
+    }
+
 }

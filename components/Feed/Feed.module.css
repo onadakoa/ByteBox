@@ -4,6 +4,7 @@
     background-color: white;
     width: 200px;
     box-shadow: var(--feed-shadow);
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
@@ -18,11 +19,12 @@
     gap: 10px;
 }
 
-.top>span {
+.top > span {
     font-size: 0.9rem;
     line-height: 1.0rem;
 }
-.top>div {
+
+.top > div {
     height: 150px;
 
     width: 100%;
@@ -38,4 +40,18 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 5px;
+}
+
+@media (width <= 768px) {
+    .top > span {
+        font-size: 0.7rem;
+    }
+
+    .top > div {
+        height: 100px;
+    }
+
+    .container {
+        gap: 15px;
+    }
 }

@@ -11,7 +11,15 @@
     background-color: var(--BColor);
     color: var(--Color);
 }
+
 .container:hover {
     cursor: pointer;
     background-color: color-mix(in srgb, var(--BColor) 90%, #ffffff 10%);
+}
+
+@media (width <= 320px) {
+    .container {
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
 }

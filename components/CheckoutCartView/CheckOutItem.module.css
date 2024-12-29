@@ -58,3 +58,17 @@
     font-weight: 700;
     font-size: 1.4rem;
 }
+
+@media (width <= 600px) {
+    .container {
+        --image-size: 100px;
+    }
+
+    .action > div > span {
+        font-size: 0.9rem
+    }
+
+    .description span {
+        font-size: 0.9rem;
+    }
+}

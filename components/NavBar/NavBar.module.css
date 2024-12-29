@@ -14,6 +14,7 @@
     grid-template-columns: 200px 1fr 200px;
 
     padding: 0 50px;
+    width: 100%;
 }
 
 .logoContainer {
@@ -50,15 +51,15 @@
     }
 }
 
-@media (width <= 800px) {
+@media (width <= 768px) {
     .container > div:nth-child(2) {
         order: 3;
         grid-column: span 2;
     }
 
     .container {
-        grid-template-columns: 200px 200px;
-        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 5px;
         justify-content: center;
     }
 }

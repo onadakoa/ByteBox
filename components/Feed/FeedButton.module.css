@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .container:hover {
     cursor: pointer;
 }
@@ -18,8 +19,9 @@
 .container.active {
     background: var(--primary-color);
 }
+
 .container.active:hover {
-     background-color: color-mix(in srgb,var(--primary-color) 90%, #ffffff 10%);
+    background-color: color-mix(in srgb, var(--primary-color) 90%, #ffffff 10%);
 }
 
 .container.unavailable {
@@ -27,6 +29,13 @@
     color: black;
     border: 1px solid var(--primary-color);
 }
+
 .container.unavailable:hover {
-    background-color: color-mix(in srgb,transparent 90%, black 10%);
+    background-color: color-mix(in srgb, transparent 90%, black 10%);
+}
+
+@media (width <= 768px) {
+    .container {
+        font-size: 0.6rem;
+    }
 }

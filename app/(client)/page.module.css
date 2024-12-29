@@ -1,9 +1,13 @@
 .container {
-    margin: auto;
     display: grid;
     grid-template-columns: max-content auto;
     justify-items: center;
     align-items: flex-start;
     gap: 30px;
-    width: fit-content;
+}
+
+@media (width <= 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
 }
