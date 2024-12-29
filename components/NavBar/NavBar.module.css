@@ -6,14 +6,14 @@
     box-sizing: border-box;
 
     position: sticky;
-    top: 0px;
+    top: 0;
 
     display: grid;
     align-items: center;
     justify-items: center;
     grid-template-columns: 200px 1fr 200px;
 
-    padding: 0px 50px;
+    padding: 0 50px;
 }
 
 .logoContainer {
@@ -31,21 +31,34 @@
     gap: 30px;
 }
 
-.iconsContainer>a>span {
+.iconsContainer > a > span {
     font-size: 2.2rem;
 }
 
 
-@media (width <=1000px) {
+@media (width <= 1000px) {
     .logoContainer {
         width: 100px;
     }
 
-    .iconsContainer>a>span {
+    .iconsContainer > a > span {
         font-size: 1.7rem;
     }
 
     .container {
         grid-template-columns: 100px 1fr 100px;
+    }
+}
+
+@media (width <= 800px) {
+    .container > div:nth-child(2) {
+        order: 3;
+        grid-column: span 2;
+    }
+
+    .container {
+        grid-template-columns: 200px 200px;
+        padding: 0;
+        justify-content: center;
     }
 }
