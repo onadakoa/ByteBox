@@ -1,0 +1,16 @@
+.container {
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--stroke-color);
+}
+
+.logoContainer {
+    position: relative;
+    width: 150px;
+    aspect-ratio: 2/1;
+}
