@@ -3,9 +3,9 @@
     box-sizing: border-box;
 }
 
-@media (width <= 800px) {
+@media (width <= 768px) {
     .container {
         box-sizing: border-box;
-        padding: 25px 5px;
+        padding: 25px 10px;
     }
 }
