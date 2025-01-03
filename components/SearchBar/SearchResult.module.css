@@ -23,7 +23,7 @@
 .text {
     padding: 0 10px;
     font-size: 0.9rem;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .price {

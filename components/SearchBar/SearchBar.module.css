@@ -28,7 +28,7 @@
     border-bottom-left-radius: 10px;
 }
 
-.searchContainer > input {
+.searchContainer input {
     background-color: inherit;
     border: 0;
     padding: 5px;
@@ -38,7 +38,7 @@
     width: 70ch;
 }
 
-.searchContainer > input:focus {
+.searchContainer input:focus {
     outline: none;
 }
 
@@ -88,20 +88,20 @@
 }
 
 @media (width < 1300px) {
-    .searchContainer > input {
+    .searchContainer input {
         width: 50ch;
     }
 }
 
 @media (width < 1000px) {
-    .searchContainer > input {
+    .searchContainer input {
         width: 30ch;
     }
 
 }
 
 @media (width <= 320px) {
-    .searchContainer > input {
+    .searchContainer input {
         width: 200px;
     }
 }

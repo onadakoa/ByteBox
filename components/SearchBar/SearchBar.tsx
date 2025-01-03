@@ -1,12 +1,12 @@
 "use client"
-import { ChangeEvent, CSSProperties, useEffect, useRef, useState } from "react"
+import {ChangeEvent, CSSProperties, useEffect, useRef, useState} from "react"
 import css from "./SearchBar.module.css"
-import { Poppins } from "next/font/google"
+import {Poppins} from "next/font/google"
 import Symbol from "../MaterialSymbols/Symbol"
-import Result, { ResultType } from "./SearchResult"
-import { useRouter, useSearchParams } from "next/navigation"
+import Result, {ResultType} from "./SearchResult"
+import {useRouter, useSearchParams} from "next/navigation"
 
-const poppins = Poppins({ weight: "400", subsets: ["latin"] })
+const poppins = Poppins({weight: "400", subsets: ["latin"]})
 
 export default function SearchBar() {
     const searchParams = useSearchParams();
@@ -23,6 +23,7 @@ export default function SearchBar() {
     const onSearch = () => {
         let query = new URLSearchParams(searchParams.toString())
         query.set("search", value.trim());
+        if (value.trim() === "") query.delete("search");
         router.push("/?" + query.toString())
     }
     useEffect(() => {
@@ -39,12 +40,20 @@ export default function SearchBar() {
             <div className={css.container} ref={searchContainer}>
                 <label>
                     <div className={[css.searchContainer, poppins.className].join(" ")}>
-                        <input type="text" value={value} onChange={onChange} placeholder="Search..."
-                            onKeyDown={(e) => { if (e.key == "Enter") onSearch() }}
-                            onFocus={() => { setFocus(true) }}
-                            onBlur={() => { setFocus(false) }}
-                            tabIndex={1}
-                        />
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            onSearch()
+                        }}>
+                            <input type="text" value={value} onChange={onChange} placeholder="Search..."
+                                   onFocus={() => {
+                                       setFocus(true)
+                                   }}
+                                   onBlur={() => {
+                                       setFocus(false)
+                                   }}
+                                   tabIndex={1}
+                            />
+                        </form>
                     </div>
                 </label>
                 <div className={css.searchButton} onClick={onSearch}>
@@ -52,9 +61,9 @@ export default function SearchBar() {
                 </div>
             </div>
             <div className={css.popup} style={popupStyle}>
-                <Result type={ResultType.search} phrase={value} />
-                <Result type={ResultType.product} phrase="product" price="125" />
-                <Result type={ResultType.category} phrase="category" />
+                <Result type={ResultType.search} phrase={value}/>
+                <Result type={ResultType.product} phrase="product" price="125"/>
+                <Result type={ResultType.category} phrase="category"/>
             </div>
         </div>
     )
