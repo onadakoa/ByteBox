@@ -30,3 +30,14 @@
     cursor: pointer;
     background-color: color-mix(in srgb, var(--background-color) 90%, black 10%);
 }
+
+@media (width <= 768px) {
+    .container {
+        font-size: 0.8rem;
+        gap: 3px;
+    }
+
+    .container > div {
+        padding: 10px 5px;
+    }
+}

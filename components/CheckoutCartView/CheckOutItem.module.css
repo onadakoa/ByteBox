@@ -59,9 +59,14 @@
     font-size: 1.4rem;
 }
 
-@media (width <= 600px) {
+@media (width <= 768px) {
     .container {
         --image-size: 100px;
+        padding: 5px;
+    }
+
+    .imageContainer {
+        border-radius: 10px;
     }
 
     .action > div > span {
@@ -70,5 +75,9 @@
 
     .description span {
         font-size: 0.9rem;
+    }
+
+    .delete > span {
+        font-size: 2rem !important;
     }
 }
