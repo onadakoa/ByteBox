@@ -12,6 +12,10 @@ export function AuthForm() {
         event.preventDefault();
         const data = new FormData(event.target as HTMLFormElement);
         console.log(data);
+
+        fetch("http://localhost:8080").then(body => body.json().then(json => {
+            console.log(json);
+        }))
     }
 
     return (
