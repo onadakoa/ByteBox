@@ -1,8 +1,8 @@
-export class Packet {
+export class Packet<T = any> {
     public c: number;
-    public d: any;
+    public d: T;
 
-    constructor(code: number, body: any) {
+    constructor(code: PacketCode, body: T) {
         this.c = code;
         this.d = body;
     }
@@ -10,4 +10,9 @@ export class Packet {
     toString() {
         return JSON.stringify({c: this.c, d: this.d});
     }
+}
+
+export enum PacketCode {
+    SUCCESS = 0,
+    ERROR = 1,
 }
