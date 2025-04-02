@@ -1,0 +1,7 @@
+.container {
+    padding: 10px 0;
+    font-weight: 500;
+    font-size: 1.6rem;
+    width: 100%;
+    box-sizing: border-box;
+}
