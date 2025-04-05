@@ -21,7 +21,7 @@ export function Input(props: {
         <div className={css.container}>
             <input name={props.name || undefined}
                    onChange={onChange}
-                   value={props.value || value}
+                   value={value}
                    type={props.type || "text"}
                    placeholder={props.placeholder || undefined}
             />
