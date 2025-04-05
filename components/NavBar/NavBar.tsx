@@ -20,11 +20,20 @@ export default function NavBar() {
             </Suspense>
         </div>
         <div className={css.iconsContainer}>
-            <Link href={"/auth"}>
+            <Link href={"/"} title={"Dashboard"}>
+                <Symbol>dashboard</Symbol>
+            </Link>
+            <Link href={"/"} title={"zamowienia"}>
+                <Symbol>receipt_long</Symbol>
+            </Link>
+            <Link href={"/auth"} title={"zaloguj"}>
                 <Symbol>account_circle</Symbol>
             </Link>
-            <Link href={"/cart"}>
+            <Link href={"/cart"} title={"koszyk"}>
                 <Symbol>shopping_cart</Symbol>
+            </Link>
+            <Link href={"/auth/settings"} title={"ustawienia"}>
+                <Symbol>settings_account_box</Symbol>
             </Link>
         </div>
     </div>)
