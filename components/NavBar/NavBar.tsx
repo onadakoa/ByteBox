@@ -23,7 +23,7 @@ export default function NavBar() {
             <Link href={"/"} title={"Dashboard"}>
                 <Symbol>dashboard</Symbol>
             </Link>
-            <Link href={"/"} title={"zamowienia"}>
+            <Link href={"/auth/orders"} title={"zamowienia"}>
                 <Symbol>receipt_long</Symbol>
             </Link>
             <Link href={"/auth"} title={"zaloguj"}>
