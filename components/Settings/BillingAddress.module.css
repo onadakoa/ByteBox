@@ -1,0 +1,74 @@
+.container {
+    border: 2px solid var(--stroke-color);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+
+    height: 100%;
+    width: 100%;
+
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.entry {
+    border: 2px solid var(--stroke-color);
+    padding: 10px;
+    border-radius: 5px;
+
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.entry > div:not(.entryAction) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.entry:hover {
+    border-color: var(--green-color);
+    cursor: pointer;
+}
+
+.addEntry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+}
+
+.entryAction {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.entryAction > span,
+.entryAction > input {
+    color: var(--blue-color);
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 3px;
+}
+
+.entryAction > span:hover,
+.entryAction > input:hover {
+    cursor: pointer;
+    color: midnightblue;
+}
+
+.entryAction > input {
+    outline: none;
+    border: 0;
+}
