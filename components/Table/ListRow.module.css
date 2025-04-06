@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.header {
+    border-bottom: 2px solid var(--stroke-color);
+
+    font-weight: 600;
+}
