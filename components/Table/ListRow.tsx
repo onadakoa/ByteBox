@@ -3,7 +3,9 @@ import css from "./ListRow.module.css";
 import React, {CSSProperties} from "react";
 import {useListContext} from "@/utils/ListContext";
 
-export default function ListRow(props: { children: React.ReactNode, padding?: string, className?: string }) {
+export type RowProps = { children: React.ReactNode, padding?: string, className?: string };
+
+export default function ListRow(props: RowProps) {
     const grid = useListContext();
 
     const style: CSSProperties = {
@@ -17,7 +19,7 @@ export default function ListRow(props: { children: React.ReactNode, padding?: st
     );
 }
 
-export function ListRowHeader(props: { children: React.ReactNode, padding?: string, className?: string }) {
+export function ListRowHeader(props: RowProps) {
     const grid = useListContext();
 
     const style: CSSProperties = {
