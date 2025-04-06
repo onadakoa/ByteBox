@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .1rem;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    user-select: none;
+    padding: 0.2rem;
+
+    overflow: hidden;
+}
+
+.container > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container > span:nth-child(2) {
+    color: #00000090;
+}
+
+.container:hover {
+    background-color: #00000010;
+    cursor: pointer;
+}
