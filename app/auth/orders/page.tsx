@@ -5,6 +5,7 @@ import {Field} from "@/components/Field/Field";
 import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
 import {ListCell} from "@/components/Table/ListCell";
 import React from "react";
+import {ExpandableRow} from "../../../components/Table/ExpandableRow";
 
 export default function Page() {
 
@@ -31,6 +32,19 @@ export default function Page() {
                         <ListCell>Pending</ListCell>
                         <ListCell>124,39 zł</ListCell>
                     </ListRow>
+                    <ExpandableRow padding={"5px 0"} content={
+                        <ListRow>
+                            <ListCell>#32</ListCell>
+                            <ListCell>03.04.2025</ListCell>
+                            <ListCell>Pending</ListCell>
+                            <ListCell>124,39 zł</ListCell>
+                        </ListRow>
+                    }>
+                        <ListCell>#32</ListCell>
+                        <ListCell>03.04.2025</ListCell>
+                        <ListCell>Pending</ListCell>
+                        <ListCell>124,39 zł</ListCell>
+                    </ExpandableRow>
                 </OrderList>
             </Field>
         </div>

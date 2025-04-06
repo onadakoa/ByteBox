@@ -1,0 +1,23 @@
+.container {
+    overflow: hidden;
+}
+
+.container:hover {
+    cursor: pointer;
+    background-color: color-mix(in srgb, transparent 50%, var(--stroke-color));
+}
+
+.container.expanded > .content {
+    display: block;
+}
+
+.container > .content {
+    display: none;
+}
+.content {
+    padding: 5px 10px 0 100px;
+}
+.content > div {
+    border-radius: 10px;
+    background: var(--secondary-color);
+}
