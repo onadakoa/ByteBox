@@ -6,3 +6,12 @@
 .list {
     font-size: 0.9rem;
 }
+
+@media (width < 650px) {
+    .mainContainer {
+        padding: 20px 10px;
+    }
+    .list {
+        font-size: 0.7rem;
+    }
+}

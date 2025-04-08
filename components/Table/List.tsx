@@ -9,9 +9,13 @@ export const List = (props: { children?: React.ReactNode, className?: string, gr
     }
     return (
         <div className={[poppins.className, css.container, props.className].join(" ")} style={style}>
+            <div>
+
             <ListContextProvider gridTemplateColumns={props.gridTemplateColumns}>
                 {props.children}
             </ListContextProvider>
+
+            </div>
         </div>
     );
 };

@@ -4,3 +4,9 @@
     display: flex;
     align-items: center;
 }
+
+@media (width < 650px) {
+    .container {
+        padding: 3px;
+    }
+}
