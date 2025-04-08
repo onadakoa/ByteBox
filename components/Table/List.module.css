@@ -4,6 +4,11 @@
     flex-direction: column;
 
     border-radius: 5px;
+
+    overflow: auto;
+}
+.container > * {
+    min-width: min-content;
 }
 
 
