@@ -1,0 +1,15 @@
+.container {
+    --mainColor: gray;
+
+    font-weight: 500;
+    padding: .2em 10px;
+    border: 2px solid color-mix(in srgb, var(--mainColor) 80%, white);
+    border-radius: 10px;
+
+    background-color: color-mix(in srgb, var(--mainColor) 40%, white);
+    color: color-mix(in srgb, var(--mainColor) 70%, black);
+}
+
+.pending {
+    --mainColor: #d4d418;
+}
