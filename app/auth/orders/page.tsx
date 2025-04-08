@@ -1,11 +1,11 @@
 import css from "./page.module.css"
 import {Header} from "@/components/Header/Header";
-import {OrderList} from "@/components/Table/OrderList";
+import {List} from "@/components/Table/List";
 import {Field} from "@/components/Field/Field";
 import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
 import {ListCell} from "@/components/Table/ListCell";
 import React from "react";
-import {ExpandableRow} from "../../../components/Table/ExpandableRow";
+import {ExpandableRow} from "@/components/Table/ExpandableRow";
 
 export default function Page() {
 
@@ -13,7 +13,7 @@ export default function Page() {
         <div className={css.mainContainer}>
             <Field padding={"10px"}>
                 <Header padding={"5px"}>Orders</Header>
-                <OrderList className={css.list} gridTemplateColumns={"100px 1fr 1fr 1fr"}>
+                <List className={css.list} gridTemplateColumns={"100px 1fr 1fr 1fr"}>
                     <ListRowHeader>
                         <ListCell>Order Id</ListCell>
                         <ListCell>Date</ListCell>
@@ -33,19 +33,21 @@ export default function Page() {
                         <ListCell>124,39 zł</ListCell>
                     </ListRow>
                     <ExpandableRow padding={"5px 0"} content={
-                        <ListRow>
-                            <ListCell>#32</ListCell>
-                            <ListCell>03.04.2025</ListCell>
-                            <ListCell>Pending</ListCell>
-                            <ListCell>124,39 zł</ListCell>
-                        </ListRow>
+                        <List gridTemplateColumns={"50px 1fr 1fr 1fr"}>
+                            <ListRow>
+                                <ListCell>#32</ListCell>
+                                <ListCell>03.04.2025</ListCell>
+                                <ListCell>Pending</ListCell>
+                                <ListCell>124,39 zł</ListCell>
+                            </ListRow>
+                        </List>
                     }>
                         <ListCell>#32</ListCell>
                         <ListCell>03.04.2025</ListCell>
                         <ListCell>Pending</ListCell>
                         <ListCell>124,39 zł</ListCell>
                     </ExpandableRow>
-                </OrderList>
+                </List>
             </Field>
         </div>
     );

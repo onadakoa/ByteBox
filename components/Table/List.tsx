@@ -1,9 +1,9 @@
-import css from "./OrderList.module.css";
+import css from "./List.module.css";
 import {poppins} from "@/utils/font";
 import React, {CSSProperties} from "react";
 import {ListContextProvider} from "@/utils/ListContext";
 
-export const OrderList = (props: { children?: React.ReactNode, className?: string, gridTemplateColumns?: string, border?: string }) => {
+export const List = (props: { children?: React.ReactNode, className?: string, gridTemplateColumns?: string, border?: string }) => {
     const style: CSSProperties = {
         border: props.border
     }
