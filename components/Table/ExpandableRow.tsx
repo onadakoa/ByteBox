@@ -6,11 +6,15 @@ import ListRow, {RowProps} from "./ListRow";
 export function ExpandableRow(props: RowProps & {
     expandedContent?: React.ReactNode,
     content?: React.ReactNode,
+    indentation?: string,
 }) {
     const [expanded, setExpanded] = React.useState(true);
 
     const style: CSSProperties = {
         padding: props.padding
+    }
+    const contentStyle: CSSProperties = {
+        paddingLeft: props.indentation ? props.indentation : undefined,
     }
     const expand = () => {
         setExpanded(!expanded);
@@ -24,7 +28,7 @@ export function ExpandableRow(props: RowProps & {
             <ListRow>
                 {props.children}
             </ListRow>
-            <div className={css.content}>
+            <div className={css.content} style={contentStyle}>
                 <div onClick={contentClick}>
                     {props.content}
                 </div>
