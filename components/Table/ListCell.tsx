@@ -5,6 +5,7 @@ export const ListCell = (props: { children?: React.ReactNode, className?: string
     const style: CSSProperties = {
         padding: props.padding,
         justifyContent: (props.centerHorizontal) ? "center" : undefined,
+        textAlign: (props.centerHorizontal) ? "center" : undefined,
     }
     return (
         <div className={[css.container, props.className].join(" ")} style={style}>
