@@ -14,11 +14,12 @@ export const Manager = (props: {
     additionalButtons?: ReactNode,
     gridTemplateColumns?: string,
     dontShowAction?: boolean,
+    actionGridTemplateColumns?: string,
 }) => {
     return (
         <div className={css.container}>
             {(!props.dontShowAction) ? (
-                <div className={css.action}>
+                <div className={css.action} style={{gridTemplateColumns: props.actionGridTemplateColumns}}>
                     <div><MiniSearchBar value={props.searchValue} setValue={props.setSearchValue}/></div>
                     <div>{props.additionalSettings}</div>
                     <div>{props.additionalButtons}</div>
