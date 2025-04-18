@@ -1,6 +1,69 @@
+import css from "./page.module.css";
+import {Card} from "@/components/Field/Card";
+import {poppins} from "@/utils/font";
+import React, {ReactNode} from "react";
+import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
+import {ListCell} from "@/components/Table/ListCell";
+import {Manager} from "@/components/Admin/Manager";
+import Badge from "@/components/Badge/Badge";
 
 export default function page() {
-    return (<>
+    return (<div className={[poppins.className, css.container].join(" ")}>
+        <div className={css.section}>
+            <GridItem header={"Total users"}>32 users</GridItem>
+            <GridItem header={"Total products"}>5 products</GridItem>
+            <GridItem header={"Orders"}>3 orders</GridItem>
+            <GridItem header={"Profit"}>3,200 zł</GridItem>
+        </div>
+        <div className={[css.section, css.section2].join(" ")}>
+            <Card>
+                <div className={css.cardHeader}>Products</div>
+                <Manager gridTemplateColumns={"100px 1fr 100px"}>
+                    <ListRowHeader>
+                        <ListCell centerHorizontal>id</ListCell>
+                        <ListCell>name</ListCell>
+                        <ListCell centerHorizontal>price</ListCell>
+                    </ListRowHeader>
+                    <ListRow>
+                        <ListCell centerHorizontal>#32</ListCell>
+                        <ListCell>Muhamed Slicks</ListCell>
+                        <ListCell centerHorizontal>32 zł</ListCell>
+                    </ListRow>
+                </Manager>
+            </Card>
+            <Card>
+                <div className={css.cardHeader}>Recent orders</div>
+                <Manager gridTemplateColumns={"100px 1fr 125px 125px"} dontShowAction>
+                    <ListRowHeader>
+                        <ListCell centerHorizontal>Id</ListCell>
+                        <ListCell>User</ListCell>
+                        <ListCell centerHorizontal>Total price</ListCell>
+                        <ListCell centerHorizontal>Status</ListCell>
+                    </ListRowHeader>
+                    <ListRow>
+                        <ListCell centerHorizontal>#3</ListCell>
+                        <ListCell>Aldi Almanacs</ListCell>
+                        <ListCell centerHorizontal>3,255 zł</ListCell>
+                        <ListCell centerHorizontal><Badge variant={"pending"}>Pending</Badge></ListCell>
+                    </ListRow>
+                    <ListRow>
+                        <ListCell centerHorizontal>#2</ListCell>
+                        <ListCell>Aldi Almanacs</ListCell>
+                        <ListCell centerHorizontal>3,255 zł</ListCell>
+                        <ListCell centerHorizontal><Badge variant={"pending"}>Pending</Badge></ListCell>
+                    </ListRow>
+                </Manager>
+            </Card>
+        </div>
+    </div>);
+}
 
-    </>);
+function GridItem(props: {
+    header?: ReactNode,
+    children?: ReactNode
+}) {
+    return (<Card>
+        <div className={css.cardHeader}>{props.header}</div>
+        <div className={css.cardContent}>{props.children}</div>
+    </Card>)
 }
