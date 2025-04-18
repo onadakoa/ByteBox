@@ -1,7 +1,7 @@
 .container {
     --row-width: 75px;
 
-    height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-columns: calc(var(--row-width) + 15px) 1fr;
     grid-template-rows: var(--row-width) 1fr;
@@ -45,4 +45,31 @@
     box-sizing: border-box;
 
     overflow: auto;
+}
+
+@media screen and (width < 850px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, var(--row-width)) 1fr;
+    }
+
+    .navBar {
+        grid-column: 1;
+    }
+
+    .icons {
+        flex-direction: row;
+        justify-content: space-between;
+        grid-column: span 2;
+        padding: 1rem 2rem;
+    }
+
+    .icons > a > div > span {
+        font-size: 0.5rem !important;
+        font-weight: 800;
+    }
+
+    .content {
+        overflow: unset;
+    }
 }

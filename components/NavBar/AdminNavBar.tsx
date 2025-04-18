@@ -8,7 +8,6 @@ import {poppins} from "@/utils/font";
 export default function AdminNavBar(props: { children?: React.ReactNode }) {
     return (
         <div className={css.container}>
-            <div className={css.empty}></div>
             <div className={css.navBar}>
                 <div>
                     <Link href={"/"}>
