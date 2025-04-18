@@ -6,10 +6,10 @@ export const metadata: Metadata = {
     title: "Admin Dashboard",
 }
 
-export default function layout(props: {children: ReactNode}) {
+export default function layout(props: { children: ReactNode }) {
     return (
         <AdminNavBar>
-            R
+            {props.children}
         </AdminNavBar>
     );
 }
