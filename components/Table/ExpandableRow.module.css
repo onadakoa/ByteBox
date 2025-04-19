@@ -14,10 +14,12 @@
 .container > .content {
     display: none;
 }
+
 .content {
     padding: 5px 10px 0 5%;
 }
+
 .content > div {
     border-radius: 10px;
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
 }

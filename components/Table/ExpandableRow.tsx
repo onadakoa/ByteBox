@@ -1,11 +1,11 @@
 "use client";
 import css from "./ExpandableRow.module.css";
-import React, {CSSProperties, MouseEventHandler} from "react";
+import React, {CSSProperties} from "react";
 import ListRow, {RowProps} from "./ListRow";
 
 export function ExpandableRow(props: RowProps & {
-    expandedContent?: React.ReactNode,
     content?: React.ReactNode,
+    backgroundColor?: string,
     indentation?: string,
 }) {
     const [expanded, setExpanded] = React.useState(true);
@@ -19,7 +19,7 @@ export function ExpandableRow(props: RowProps & {
     const expand = () => {
         setExpanded(!expanded);
     }
-    const contentClick = (event: React.MouseEvent) =>{
+    const contentClick = (event: React.MouseEvent) => {
         event.stopPropagation();
     }
 
@@ -29,7 +29,7 @@ export function ExpandableRow(props: RowProps & {
                 {props.children}
             </ListRow>
             <div className={css.content} style={contentStyle}>
-                <div onClick={contentClick}>
+                <div onClick={contentClick} style={{backgroundColor: props.backgroundColor}}>
                     {props.content}
                 </div>
             </div>
