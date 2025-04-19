@@ -1,6 +1,7 @@
 import React, {ReactNode} from "react";
 import {Metadata} from "next";
 import AdminNavBar from "@/components/NavBar/AdminNavBar";
+import {ModalProvider} from "@/components/Modal/ModalProvider";
 
 export const metadata: Metadata = {
     title: "Admin Dashboard",
@@ -8,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function layout(props: { children: ReactNode }) {
     return (
-        <AdminNavBar>
-            {props.children}
-        </AdminNavBar>
+        <ModalProvider>
+            <AdminNavBar>
+                {props.children}
+            </AdminNavBar>
+        </ModalProvider>
     );
 }
