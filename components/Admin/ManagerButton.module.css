@@ -1,0 +1,20 @@
+.container {
+    appearance: none;
+    border: 0;
+    outline: none;
+    font: inherit;
+    /*width: 100%;*/
+
+    background-color: var(--blue-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 10px;
+}
+
+.container:hover {
+    background-color: color-mix(in srgb, var(--blue-color) 90%, #ffffff 10%);
+    cursor: pointer;
+}
