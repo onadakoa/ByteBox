@@ -1,0 +1,60 @@
+.container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    column-gap: 20px;
+    row-gap: 1rem;
+}
+
+.section2 {
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+}
+
+.cardContent {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.cardHeader {
+    font-size: 1.0rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (width < 600px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (width < 950px) {
+    .section {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .section2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (width < 600px) {
+    .section2 > div {
+        overflow: auto;
+    }
+
+    .container {
+        padding: 30px 5px;
+    }
+}
+
+@media screen and (width < 450px) {
+    .section {
+        grid-template-columns: 1fr;
+    }
+}

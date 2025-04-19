@@ -20,7 +20,7 @@ export default function NavBar() {
             </Suspense>
         </div>
         <div className={css.iconsContainer}>
-            <Link href={"/"} title={"Dashboard"}>
+            <Link href={"/dashboard"} title={"Dashboard"}>
                 <Symbol>dashboard</Symbol>
             </Link>
             <Link href={"/auth/orders"} title={"zamowienia"}>

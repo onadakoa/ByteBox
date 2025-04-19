@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.action {
+    display: grid;
+    grid-template-columns: minmax(300px, .5fr) 1fr max-content;
+    align-items: center;
+}
+
+.action > div {
+    display: flex;
+    gap: .5rem;
+}
+
+@media (width < 600px) {
+    .action {
+        grid-template-columns: 1fr;
+        gap: .5rem;
+    }
+}
