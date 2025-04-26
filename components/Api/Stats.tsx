@@ -11,6 +11,9 @@ export const Stats = (props: {
     if (isLoading) return (
         <>Loading...</>
     );
+    if (error) {
+        return <>{error.toString()}</>;
+    }
     return (
         <>
             {stats.d[props.children]}
