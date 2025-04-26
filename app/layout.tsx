@@ -1,8 +1,9 @@
-import { Metadata } from "next";
+import {Metadata} from "next";
 
 import "./globals.css";
 import "material-symbols";
-
+import {SWRConfig} from "swr";
+import {FETCHER} from "@/utils/api";
 
 
 export const metadata: Metadata = {
@@ -10,12 +11,16 @@ export const metadata: Metadata = {
 }
 
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <html lang="pl">
-            <body>
-                {children}
-            </body>
+        <body>
+        <SWRConfig value={{
+            fetcher: FETCHER,
+        }}>
+            {children}
+        </SWRConfig>
+        </body>
         </html>
     )
 }
