@@ -1,4 +1,17 @@
 .container {
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: 900;
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pulse {
+    from {
+        color: red;
+    }
+    to {
+        color: black;
+    }
 }

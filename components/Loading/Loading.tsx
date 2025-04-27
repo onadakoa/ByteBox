@@ -1,10 +1,10 @@
 import css from "./Loading.module.css";
-import {poppins} from "@/utils/font";
+import React from "react";
 
-export function Loading() {
+export function Loading(props: {
+    children?: React.ReactNode;
+}) {
     return (
-        <div style={poppins.style} className={css.container}>
-            <span>Loading...</span>
-        </div>
+        <span className={css.container}>{props.children}</span>
     );
 }

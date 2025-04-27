@@ -1,6 +1,7 @@
 "use client";
 
 import useStats from "@/hooks/useStats";
+import {Loading} from "@/components/Loading/Loading";
 
 
 export const Stats = (props: {
@@ -8,15 +9,12 @@ export const Stats = (props: {
 }) => {
     const {stats, error, isLoading} = useStats();
 
-    if (isLoading) return (
-        <>Loading...</>
+    if (isLoading || error) return (
+        <Loading>-</Loading>
     );
-    if (error) {
-        return <>{error.toString()}</>;
-    }
     return (
         <>
-            {stats.d[props.children]}
+            {(stats.d as any)[props.children]}
         </>
     );
 };
