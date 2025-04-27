@@ -9,14 +9,17 @@ import Badge from "@/components/Badge/Badge";
 import {ManagerButton} from "@/components/Admin/ManagerButton";
 import {List} from "@/components/Table/List";
 import {ExpandableRow} from "@/components/Table/ExpandableRow";
+import {Stats} from "@/components/Api/Stats";
 
 export default function page() {
     return (<div className={[poppins.className, css.container].join(" ")}>
         <div className={css.section}>
-            <GridItem header={"Total users"}>32 users</GridItem>
-            <GridItem header={"Total products"}>5 products</GridItem>
-            <GridItem header={"Orders"}>3 orders</GridItem>
-            <GridItem header={"Profit"}>3,200 zł</GridItem>
+            <GridItem header={"Total users"}><Stats>user_count</Stats> users</GridItem>
+            <GridItem header={"Total products"}><Stats>product_count</Stats> products</GridItem>
+            <GridItem header={"Orders"}><Stats>order_count</Stats> orders</GridItem>
+            <GridItem header={"Profit"}>
+                <Stats>avg_product_price</Stats> zł
+            </GridItem>
         </div>
         <div className={[css.section, css.section2].join(" ")}>
             <Card>
