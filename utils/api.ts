@@ -1,7 +1,7 @@
 "use client";
 import {OutPacket} from "@/utils/OutPacket";
 
-export const API_HOSTNAME = process.env.NEXT_PUBLIC_API_HOSTNAME || "http://localhost:8080";
+export const API_HOSTNAME = process.env.NEXT_PUBLIC_API_HOSTNAME || "/api/";
 
 export class JsonError extends Error {
     status: number;
@@ -15,7 +15,7 @@ export class JsonError extends Error {
 }
 
 export const FETCHER = async (url: string) => {
-    let res = await fetch(new URL(url, API_HOSTNAME).toString(), {
+    let res = await fetch(API_HOSTNAME + url, {
         credentials: "include",
         method: "GET",
     });
