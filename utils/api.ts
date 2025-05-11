@@ -21,7 +21,7 @@ export const FETCHER = async (url: string) => {
     });
 
     if (res.headers.get("Content-Type") != "application/json") {
-        return new Error("Invalid content type");
+        throw new Error("Invalid content type");
     }
     if (!res.ok) {
         throw new JsonError(res.status, await res.json())

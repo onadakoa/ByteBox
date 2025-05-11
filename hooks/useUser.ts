@@ -4,9 +4,16 @@ import {JsonError} from "@/utils/api";
 import {IUser} from "@/utils/User";
 
 export default function useUser() {
-    const {data, error, isLoading} = useSWR("/user/index.php")
+    const {data, error, isLoading} = useSWR("/user/index.php", {
+        shouldRetryOnError: false,
+    })
 
-    const isLoggedIn = (error as JsonError)?.status != 200;
+    let isLoggedIn = true;
+
+    if (error) {
+        isLoggedIn = false;
+        console.error("useUser: ", JSON.stringify(error))
+    }
 
     return {
         isLoading,
