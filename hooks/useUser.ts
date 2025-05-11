@@ -18,7 +18,8 @@ export default function useUser() {
     return {
         isLoading,
         isLoggedIn,
-        user: data as OutPacket<IUser>,
+        data: data as OutPacket<IUser>,
+        user: data?.d as IUser,
         error: error as JsonError,
     }
 }
