@@ -12,31 +12,48 @@ import {useRouter} from "next/navigation";
 export function AuthForm() {
     const [isLogin, setIsLogin] = useState<boolean>(true);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
-    const Submit: FormEventHandler<HTMLFormElement> = (event) => {
+    const Submit: FormEventHandler<HTMLFormElement> = async (event) => {
         event.preventDefault();
         setIsLoading(true);
         const data = new FormData(event.target as HTMLFormElement);
 
         let href = API_HOSTNAME + ((isLogin) ? "login.php" : "register.php");
 
-        fetch(href, {
-            credentials: "include",
+        const res = await fetch(href, {
             method: "POST",
+            credentials: "include",
             body: data,
-        }).then(body => {
-            body.json().then((json: OutPacket) => {
-                    if (json.c) {
-                        console.log("error");
-                        console.log(json);
-                        return;
-                    }
-                    console.log(json);
-                    setIsLoading(false);
-                }
-            )
         })
+
+        if (!res.ok) {
+            let err = "error";
+
+            try {
+                const json: OutPacket = await res.json();
+                err = json.d;
+            } catch (err) {
+                console.error(err)
+            }
+
+            console.error(`AuthForm FAILED: ${err}`);
+            setError(err + ` (${res.status})`);
+            setIsLoading(false);
+            return;
+        }
+
+        const json: OutPacket = await res.json();
+
+        if (json.c == 0)
+            console.log(`AuthForm SUCCESS: ${json.d.login}`)
+        else {
+            console.error(`AuthForm FAILED: ${json}`);
+            setError(json.d + ` (${res.status})`)
+        }
+
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -63,6 +80,9 @@ export function AuthForm() {
                     <form onSubmit={Submit} style={roboto.style} className={css.formContent}>
                         {(isLogin) ? (<LoginFormProps/>) : (<RegisterFormProps/>)}
 
+                        <div className={css.error}>
+                            {(error) ? error : undefined}
+                        </div>
                         <div className={css.submit}>
                             <input type="submit" value={(isLogin) ? "Zaloguj" : "Zarejestruj"}/>
                         </div>
@@ -70,9 +90,13 @@ export function AuthForm() {
                     <div style={poppins.style} className={css.modeChanger}>
                         {
                             (isLogin) ? "Nie masz konta?" : "Masz już konto?"
-                        } <span onClick={() => setIsLogin(!isLogin)}>{
-                        (isLogin) ? "Zarejestruj" : "Zaloguj"
-                    } się!</span>
+                        }
+                        <span onClick={() => {
+                            setIsLogin(!isLogin);
+                            setError(null);
+                        }}>{
+                            (isLogin) ? "Zarejestruj" : "Zaloguj"
+                        } się!</span>
                     </div>
                 </>)}
 
