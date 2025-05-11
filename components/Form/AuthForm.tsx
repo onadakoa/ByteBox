@@ -4,7 +4,7 @@ import {poppins, roboto} from "@/utils/font";
 import {Input} from "@/components/Form/Input";
 import {FormEventHandler, Fragment, useEffect, useState} from "react";
 import {API_HOSTNAME} from "@/utils/api";
-import {Packet} from "@/utils/Packet";
+import {OutPacket} from "@/utils/OutPacket";
 import {Loading} from "@/components/Loading/Loading";
 import {useRouter} from "next/navigation";
 
@@ -26,7 +26,7 @@ export function AuthForm() {
             method: "POST",
             body: data,
         }).then(body => {
-            body.json().then((json: Packet) => {
+            body.json().then((json: OutPacket) => {
                     if (json.c) {
                         console.log("error");
                         console.log(json);
@@ -42,7 +42,7 @@ export function AuthForm() {
     useEffect(() => {
         fetch(API_HOSTNAME, {
             credentials: "include",
-        }).then(body => body.json().then((json: Packet) => {
+        }).then(body => body.json().then((json: OutPacket) => {
             if (json.d.user != 0) {
                 router.push("/");
                 return;

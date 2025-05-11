@@ -1,11 +1,11 @@
 "use client";
-import {Packet} from "@/utils/Packet";
+import {OutPacket} from "@/utils/OutPacket";
 
 export const API_HOSTNAME = process.env.NEXT_PUBLIC_API_HOSTNAME || "http://localhost:8080";
 
 export class JsonError extends Error {
     status: number;
-    data: Packet<string>
+    data: OutPacket<string>
 
     constructor(status: number, data: any) {
         super();

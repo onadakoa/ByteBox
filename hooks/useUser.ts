@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import {Packet} from "@/utils/Packet";
+import {OutPacket} from "@/utils/OutPacket";
 import {JsonError} from "@/utils/api";
 import {IUser} from "@/utils/User";
 
@@ -11,7 +11,7 @@ export default function useUser() {
     return {
         isLoading,
         isLoggedIn,
-        user: data as Packet<IUser>,
+        user: data as OutPacket<IUser>,
         error: error as JsonError,
     }
 }

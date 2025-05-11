@@ -1,4 +1,4 @@
-export class Packet<T = any> {
+export class OutPacket<T = any> {
     public c: number;
     public d: T;
 

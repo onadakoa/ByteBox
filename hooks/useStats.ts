@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import {Packet} from "@/utils/Packet";
+import {OutPacket} from "@/utils/OutPacket";
 
 export interface IStats {
     product_count: number,
@@ -13,6 +13,6 @@ export default function useStats() {
     return {
         isLoading,
         error,
-        stats: data as Packet<IStats>
+        stats: data as OutPacket<IStats>
     };
 }
