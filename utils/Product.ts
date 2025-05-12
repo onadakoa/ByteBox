@@ -37,8 +37,8 @@ export class Product implements IProduct {
         return Category.getById(this.category_id);
     }
 
-    getAttachment() {
+    fetchAttachment() {
         if (!this.attachment_id) return null;
-        return Attachment.getById(this.attachment_id);
+        return Attachment.fetchById(this.attachment_id);
     }
 }
