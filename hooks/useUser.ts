@@ -12,7 +12,7 @@ export default function useUser() {
 
     if (error) {
         isLoggedIn = false;
-        console.error("useUser: ", JSON.stringify(error))
+        console.log("useUser: ", JSON.stringify(error))
     }
 
     return {
