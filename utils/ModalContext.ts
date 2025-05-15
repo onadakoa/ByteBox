@@ -8,6 +8,9 @@ export type ModalData = {
 export const ModalContext = createContext<ModalData>({showModal: () => 0, closeModal: () => 0});
 
 
+/**
+ * @return {[(children: React.ReactNode) => void, () => void]} [showModal, closeModal].
+ */
 export function useModal(): [(children: React.ReactNode) => void, () => void] {
     const ctx = useContext(ModalContext);
 
