@@ -4,6 +4,7 @@ import {Header} from "@/components/Header/Header";
 import {Field} from "@/components/Field/Field";
 import {UserSettings} from "@/components/Settings/UserSettings";
 import {BillingAddressManager} from "@/components/Settings/BillingAddressManager";
+import {LoginManager} from "@/components/Settings/LoginManager";
 
 export default function Page() {
     return (<div className={css.mainContainer}>
@@ -15,6 +16,10 @@ export default function Page() {
             <Header>Billing address</Header>
             <Field padding={"15px 20px"}>
                 <BillingAddressManager/>
+            </Field>
+            <Header>Status</Header>
+            <Field padding={"15px 20px"}>
+                <LoginManager/>
             </Field>
         </div>
     </div>)
