@@ -5,6 +5,7 @@ import Button from "@/components/Button/Button";
 import {useRouter} from "next/navigation";
 import {useModal} from "@/utils/ModalContext";
 import {Header} from "@/components/Header/Header";
+import {mutate} from "swr";
 
 export const LoginManager = () => {
     const router = useRouter();
@@ -20,6 +21,7 @@ export const LoginManager = () => {
             console.error("LoginManager: ", `failed to fetch, C: ${res.status}`)
             return;
         }
+        await mutate("/user/index.php");
         router.push("/");
     }
     const deleteAccount = async () => {
