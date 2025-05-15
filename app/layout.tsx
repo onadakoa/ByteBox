@@ -17,6 +17,7 @@ export default function Layout({children}: { children: React.ReactNode }) {
         <body>
         <SWRConfig value={{
             fetcher: FETCHER,
+            revalidateOnMount: true,
         }}>
             {children}
         </SWRConfig>

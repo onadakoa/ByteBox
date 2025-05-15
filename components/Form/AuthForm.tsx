@@ -2,7 +2,7 @@
 import css from "./AuthForm.module.css"
 import {poppins, roboto} from "@/utils/font";
 import {Input} from "@/components/Form/Input";
-import {FormEventHandler, Fragment, useEffect, useState} from "react";
+import {FormEventHandler, Fragment, useState} from "react";
 import {API_HOSTNAME} from "@/utils/api";
 import {OutPacket} from "@/utils/OutPacket";
 import {Loading} from "@/components/Loading/Loading";
@@ -11,7 +11,7 @@ import {useRouter} from "next/navigation";
 
 export function AuthForm() {
     const [isLogin, setIsLogin] = useState<boolean>(true);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
@@ -46,27 +46,16 @@ export function AuthForm() {
 
         const json: OutPacket = await res.json();
 
-        if (json.c == 0)
-            console.log(`AuthForm SUCCESS: ${json.d.login}`)
-        else {
+        if (json.c == 0) {
+            console.log(`AuthForm SUCCESS: ${json.d.login}`);
+            router.push("/");
+        } else {
             console.error(`AuthForm FAILED: ${json}`);
             setError(json.d + ` (${res.status})`)
         }
 
         setIsLoading(false);
     }
-
-    useEffect(() => {
-        fetch(API_HOSTNAME, {
-            credentials: "include",
-        }).then(body => body.json().then((json: OutPacket) => {
-            if (json.d.user != 0) {
-                router.push("/");
-                return;
-            }
-            setIsLoading(false);
-        }))
-    }, []);
 
     return (
         <div className={css.container}>
