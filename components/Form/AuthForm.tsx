@@ -7,6 +7,7 @@ import {API_HOSTNAME} from "@/utils/api";
 import {OutPacket} from "@/utils/OutPacket";
 import {Loading} from "@/components/Loading/Loading";
 import {useRouter} from "next/navigation";
+import {mutate} from "swr";
 
 
 export function AuthForm() {
@@ -48,6 +49,7 @@ export function AuthForm() {
 
         if (json.c == 0) {
             console.log(`AuthForm SUCCESS: ${json.d.login}`);
+            await mutate("/user/index.php");
             router.push("/");
         } else {
             console.error(`AuthForm FAILED: ${json}`);
