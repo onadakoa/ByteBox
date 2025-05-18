@@ -29,6 +29,7 @@ export function ProductView(props: {}) {
     const id = Number(searchParams.get("id"));
     const {product, error, isLoading} = useProduct(id);
     const [category, setCategory] = useState<string | null>(null);
+    const [isFetching, setIsFetching] = useState(false);
 
     useEffect(() => {
         if (isNaN(id) || id <= 0) router.push("/")
@@ -38,6 +39,34 @@ export function ProductView(props: {}) {
             })
         }
     }, [isLoading]);
+
+    const add = async () => {
+        if (!product) return;
+        setIsFetching(true);
+
+        let formData = new FormData();
+        formData.append("product_id", product.product_id.toString());
+        formData.append("quantity", "1");
+
+        const res = await fetch("/api/cart/index.php", {
+            credentials: "include",
+            method: "POST",
+            body: formData,
+        })
+
+        if (!res.ok) {
+            console.error("ProductView: ", `failed to fetch, C: ${res.status}`)
+            try {
+                const json = await res.json();
+                console.error("ProductView: ", json)
+            } catch (err) {
+                console.error("ProductView: ", err)
+            }
+            return;
+        }
+
+        setIsFetching(false)
+    }
 
     return (
         <div className={css.container}>
@@ -63,7 +92,7 @@ export function ProductView(props: {}) {
                         {(isLoading || error) ? <Loading>-</Loading> : (product.price + " zł")}
                     </div>
                     <div>
-                        <Button backgroundColor={"var(--primary-color)"}>{(isLoading || error || product.stock <= 0) ?
+                        <Button onClick={add} backgroundColor={"var(--primary-color)"}>{(isLoading || error || isFetching || product.stock <= 0) ?
                             <Loading>-</Loading> : "Dodaj do koszyka"}</Button>
                     </div>
                 </div>
