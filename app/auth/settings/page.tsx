@@ -17,7 +17,7 @@ export default function Page() {
             </Field>
             <Header>Billing address</Header>
             <Field padding={"15px 20px"}>
-                <BillingAddressManager/>
+                <BillingAddressManager DontSelect/>
             </Field>
             <Header>Status</Header>
             <Field padding={"15px 20px"}>
