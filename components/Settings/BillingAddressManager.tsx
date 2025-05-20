@@ -8,7 +8,6 @@ import {TableField} from "@/components/Table/TableField";
 import {Input} from "@/components/Form/Input";
 import {useAddress} from "@/hooks/useAddress";
 import {mutate} from "swr";
-import {Simulate} from "react-dom/test-utils";
 
 type Tmode = "view" | "edit" | "create";
 
@@ -23,10 +22,10 @@ export function BillingAddressManager(props: { DontRenderAddEntry?: boolean, Don
 
         return addresses?.map((val) => {
             let values = [
-                `${val.first_name} ${val.last_name}`,
-                val.phone_number,
-                `${val.city} ${val.postal_code}`,
-                `${val.street} ${val.building_number} ${val.apartment_number || ""}`,
+                `${val.first_name} ${val.last_name},`,
+                `${val.phone_number},`,
+                `${val.city}, ${val.postal_code},`,
+                `${val.street}, ${val.building_number}, ${val.apartment_number || ""}`,
             ];
 
             return (
