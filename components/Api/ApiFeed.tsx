@@ -7,9 +7,9 @@ import {Product} from "@/utils/Product";
 import {Attachment} from "@/utils/Attachment";
 
 export const ApiFeed = () => {
-    const {products, isProductsLoading, error} = useProductList();
+    const {products, isLoading, error} = useProductList();
 
-    if (isProductsLoading || error) return "loading";
+    if (isLoading || error) return "loading";
 
     return (
         <>
