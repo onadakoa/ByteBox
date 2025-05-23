@@ -20,7 +20,7 @@ export default function CheckOutItem(props: {
 }) {
     const [quantity, setQuantity] = useState(props.quantity || 2);
     const onQuantitySet = (nQuantity: number) => {
-        if (nQuantity <= 0) return;
+        if (nQuantity < 0) return;
         setQuantity(nQuantity);
         if (props.OnQuantityChange != undefined)
             props.OnQuantityChange(nQuantity);
