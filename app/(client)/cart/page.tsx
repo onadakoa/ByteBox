@@ -34,7 +34,7 @@ export default function Page() {
                         <CartItemsList/>
                     </div>
                     <div className={css.checkout}>
-                        <CheckOut price={"1313"}/>
+                        <CheckOut/>
                     </div>
                 </div>
             </div>
