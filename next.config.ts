@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true
     },
-    output: "standalone",
+    // output: "standalone",
     basePath: process.env.BASE_PATH || undefined,
     async rewrites() {
         return ([{
