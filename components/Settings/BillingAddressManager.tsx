@@ -11,10 +11,18 @@ import {mutate} from "swr";
 
 type Tmode = "view" | "edit" | "create";
 
-export function BillingAddressManager(props: { DontRenderAddEntry?: boolean, DontSelect?: boolean, DontShowActions?: boolean }) {
+export function BillingAddressManager(props: {
+    DontRenderAddEntry?: boolean, DontSelect?: boolean, DontShowActions?: boolean,
+    onSelect?: (id: number) => void,
+}) {
     const [selected, setSelected] = useState<number | null>(null);
     const [[mode, id], setMode] = useState<[Tmode, number]>(['view', 0]);
     const {addresses, isLoading, error} = useAddress();
+
+    const select = (id: number) => {
+        setSelected(id);
+        if (props.onSelect) props.onSelect(id);
+    }
 
     const Fields = () => {
         if (isLoading || mode !== "view") return;
@@ -32,7 +40,7 @@ export function BillingAddressManager(props: { DontRenderAddEntry?: boolean, Don
                 <Entry key={val.shipping_address_id} id={val.shipping_address_id} values={values}
                        selected={val.shipping_address_id === selected}
                        showActions={!props.DontShowActions}
-                       onSelect={(!props.DontSelect) ? () => setSelected(val.shipping_address_id) : undefined}
+                       onSelect={(!props.DontSelect) ? () => select(val.shipping_address_id) : undefined}
                        setMode={setMode}
                 />
             )
