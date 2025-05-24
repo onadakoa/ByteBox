@@ -79,6 +79,7 @@ export const CartItemView = (props: {
         <CheckOutItem price={apiItem.price.toString()} quantity={quantity} title={apiItem.name}
                       imageURL={url || "https://placehold.co/600x600"}
                       OnDelete={onDelete} OnQuantityChange={onChange}
+                      gotoURL={"/product?id=" + apiItem.product_id}
         />
     )
 }

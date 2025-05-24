@@ -16,7 +16,7 @@ export default function Page() {
             <RequireAuth type={"loggedIn"}/>
             <div className={css.cart_container}>
                 <div className={css.upper}>
-                    <span style={poppins.style}>Twój Koszyk</span>
+                    <span style={poppins.style}>Cart</span>
                     <div className={roboto.className}>
                         <IconButton
                             icon={(

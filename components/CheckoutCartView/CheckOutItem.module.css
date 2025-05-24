@@ -59,6 +59,10 @@
     font-size: 1.4rem;
 }
 
+.hover:hover {
+    cursor: pointer;
+}
+
 @media (width <= 768px) {
     .container {
         --image-size: 100px;
