@@ -6,7 +6,6 @@ import SearchBar from "../SearchBar/SearchBar"
 import {Suspense} from "react"
 import {IfIsLoggedIn} from "@/components/Api/IfIsLoggedIn";
 import {IfIsAdmin} from "@/components/Api/IfIsAdmin";
-import {Test} from "@/components/Api/Test";
 
 
 export default function NavBar() {
