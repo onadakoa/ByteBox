@@ -26,7 +26,7 @@ export default function Page() {
                                 >delete_forever</Symbol>
                             )}
                             onClick={undefined}
-                        >Usuń Wszystko</IconButton>
+                        >clear all</IconButton>
                     </div>
                 </div>
                 <div className={css.content}>
