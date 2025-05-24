@@ -1,0 +1,30 @@
+.container {
+    border-radius: 5px;
+    border: 2px solid var(--stroke-color);
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+
+    font-size: 0.9rem;
+}
+
+.container > div {
+    border: 2px solid var(--stroke-color);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.container > div:hover {
+    background-color: #00000010;
+    cursor: pointer;
+}
+
+.selected {
+    border-color: black !important;
+}
