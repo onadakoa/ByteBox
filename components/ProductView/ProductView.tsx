@@ -93,7 +93,7 @@ export function ProductView(props: {}) {
                     </div>
                     <div>
                         <Button onClick={add} backgroundColor={"var(--primary-color)"}>{(isLoading || error || isFetching || product.stock <= 0) ?
-                            <Loading>-</Loading> : "Dodaj do koszyka"}</Button>
+                            <Loading>-</Loading> : "Add to cart"}</Button>
                     </div>
                 </div>
             </div>
