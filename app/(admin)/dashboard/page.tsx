@@ -27,7 +27,7 @@ export default function page() {
                 <Manager gridTemplateColumns={"100px 1fr 100px"}
                          additionalButtons={
                              <>
-                                 <ManagerButton>Add item</ManagerButton>
+                                 <ManagerButton href="/products/create">Add item</ManagerButton>
                              </>
                          }
                 >
