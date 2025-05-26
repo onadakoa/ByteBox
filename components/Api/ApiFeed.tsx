@@ -5,9 +5,16 @@ import {useEffect, useState} from "react";
 import Feed from "@/components/Feed/Feed";
 import {Product} from "@/utils/Product";
 import {Attachment} from "@/utils/Attachment";
+import {useSearchParams} from "next/navigation";
 
 export const ApiFeed = () => {
-    const {products, isLoading, error} = useProductList();
+    const searchParams = useSearchParams();
+    const search = searchParams.get("search") || undefined;
+    const category = Number(searchParams.get("category")) || undefined;
+    const sort = searchParams.get("sort") || undefined;
+    const price_in = Number(searchParams.get("price_in")) || undefined;
+    const price_out = Number(searchParams.get("price_out")) || undefined;
+    const {products, isLoading, error} = useProductList({search, sort, category, price_in, price_out});
 
     if (isLoading || error) return "loading";
 

@@ -10,12 +10,12 @@ export default function Page() {
         <div className={css.container}>
             <Suspense>
                 <FilterBox/>
-                <FeedController>
-                    <Suspense>
-                        <ApiFeed/>
-                    </Suspense>
-                </FeedController>
             </Suspense>
+            <FeedController>
+                <Suspense>
+                    <ApiFeed/>
+                </Suspense>
+            </FeedController>
         </div>
     );
 }
