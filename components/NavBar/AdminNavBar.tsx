@@ -21,26 +21,6 @@ export default function AdminNavBar(props: { children?: React.ReactNode }) {
                         Dashboard
                     </IconLabel>
                 </Link>
-                <Link href={"/dashboard/user"}>
-                    <IconLabel padding={"0.5rem 0"} ForceColumn IconComponent={<Symbol fontSize={"2rem"}>group</Symbol>}>
-                        User
-                    </IconLabel>
-                </Link>
-                <Link href={"/dashboard/item"}>
-                    <IconLabel padding={"0.5rem 0"} ForceColumn IconComponent={<Symbol fontSize={"2rem"}>package_2</Symbol>}>
-                        Item
-                    </IconLabel>
-                </Link>
-                <Link href={"/dashboard/category"}>
-                    <IconLabel padding={"0.5rem 0"} ForceColumn IconComponent={<Symbol fontSize={"2rem"}>category</Symbol>}>
-                        Category
-                    </IconLabel>
-                </Link>
-                <Link href={"/dashboard/order"}>
-                    <IconLabel padding={"0.5rem 0"} ForceColumn IconComponent={<Symbol fontSize={"2rem"}>shopping_bag_speed</Symbol>}>
-                        Order
-                    </IconLabel>
-                </Link>
             </div>
             <div className={css.content}>{props.children}</div>
         </div>
