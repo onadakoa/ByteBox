@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     async rewrites() {
         return ([{
             source: "/api/:path*",
-            destination: "http://localhost:8080/:path*"
+            destination: (process.env.API_HOSTNAME || "http://localhost:8080") + "/:path*"
         }]);
     }
 };

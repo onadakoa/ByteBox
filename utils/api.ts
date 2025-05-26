@@ -1,7 +1,7 @@
 "use client";
 import {OutPacket} from "@/utils/OutPacket";
 
-export const API_HOSTNAME = process.env.NEXT_PUBLIC_API_HOSTNAME || "/api/";
+export const API_HOSTNAME = "/api/";
 
 export class JsonError extends Error {
     status: number;
