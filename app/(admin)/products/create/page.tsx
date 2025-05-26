@@ -5,6 +5,9 @@ import {poppins} from "@/utils/font";
 import css from "./page.module.css";
 import {ICategory} from "@/utils/Category";
 import Image from "next/image";
+import { OutPacket } from "@/utils/OutPacket";
+
+export type file = {file_id: number, id: number};
 
 export default function CreateProductPage() {
     const [name, setName] = useState("");
@@ -66,18 +69,25 @@ export default function CreateProductPage() {
         setMessage("");
 
         try {
-            // First upload the images if selected
             let attachmentId = null;
             if (selectedImages.length > 0) {
                 const imageFormData = new FormData();
 
-                // Append each image to the form data
+                let images: any[] = [];
                 selectedImages.forEach((image, index) => {
                     imageFormData.append(`image${index}`, image);
+                    images.push({
+                        file_id: index+1,
+                        size: image.size,
+                        type: image.type
+                    })
                 });
+                imageFormData.append("files", JSON.stringify(images));
+                imageFormData.append("file_count", images.length.toString());
 
-                const attachmentResponse = await fetch("/api/attachments/upload.php", {
+                const attachmentResponse = await fetch("/api/attachments/index.php", {
                     method: "POST",
+                    credentials: "include",
                     body: imageFormData,
                 });
 
@@ -85,26 +95,46 @@ export default function CreateProductPage() {
                     throw new Error("Failed to upload images");
                 }
 
-                const attachmentData = await attachmentResponse.json();
+                const attachmentData = await attachmentResponse.json() as OutPacket<{files: file[], attachment_id: number}>;
                 attachmentId = attachmentData.d.attachment_id;
+                attachmentData.d.files.forEach((f) => {
+                    (async () => {
+                        console.log(selectedImages);
+                        const body = await selectedImages[f.file_id - 1].arrayBuffer();
+                        const res = await fetch("/api/attachments/image.php?id=" + f.id, {
+                            method: "PUT",
+                            credentials: "include",
+                            body
+                        })
+                    })();
+                })
+                console.log(attachmentData);
             }
 
             // Then create the product
             const productData = {
                 name,
                 description,
-                price: parseFloat(price),
-                stock: parseInt(stock),
+                price: price,
+                stock: stock,
                 category_id: categoryId,
                 attachment_id: attachmentId,
+                author_id: 2
             };
+            const body = new FormData();
+            body.append("name", productData.name)
+            body.append("description", productData.description);
+            body.append("price", productData.price);
+            body.append("stock", productData.stock);
+            body.append("category_id", productData.category_id+"");
+            body.append("author_id", productData.author_id+"");
+            body.append("attachment_id", productData.attachment_id+"");
 
-            const response = await fetch("/api/products/create.php", {
+
+            const response = await fetch("/api/products/index.php", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(productData),
+                credentials: "include",
+                body: body
             });
 
             if (!response.ok) {
