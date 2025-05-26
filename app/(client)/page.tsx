@@ -11,7 +11,9 @@ export default function Page() {
             <Suspense>
                 <FilterBox/>
                 <FeedController>
-                    <ApiFeed/>
+                    <Suspense>
+                        <ApiFeed/>
+                    </Suspense>
                 </FeedController>
             </Suspense>
         </div>
