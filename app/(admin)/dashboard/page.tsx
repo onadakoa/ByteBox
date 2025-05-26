@@ -6,10 +6,10 @@ import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
 import {ListCell} from "@/components/Table/ListCell";
 import {Manager} from "@/components/Admin/Manager";
 import Badge from "@/components/Badge/Badge";
-import {ManagerButton} from "@/components/Admin/ManagerButton";
 import {List} from "@/components/Table/List";
 import {ExpandableRow} from "@/components/Table/ExpandableRow";
 import {Stats} from "@/components/Api/Stats";
+import {ProductsManager} from "@/components/Admin/ProductsManager";
 
 export default function page() {
     return (<div className={[poppins.className, css.container].join(" ")}>
@@ -24,24 +24,7 @@ export default function page() {
         <div className={[css.section, css.section2].join(" ")}>
             <Card>
                 <div className={css.cardHeader}>Products</div>
-                <Manager gridTemplateColumns={"100px 1fr 100px"}
-                         additionalButtons={
-                             <>
-                                 <ManagerButton href="/products/create">Add item</ManagerButton>
-                             </>
-                         }
-                >
-                    <ListRowHeader>
-                        <ListCell centerHorizontal>id</ListCell>
-                        <ListCell>name</ListCell>
-                        <ListCell centerHorizontal>price</ListCell>
-                    </ListRowHeader>
-                    <ListRow>
-                        <ListCell centerHorizontal>#32</ListCell>
-                        <ListCell>Muhamed Slicks</ListCell>
-                        <ListCell centerHorizontal>32 zł</ListCell>
-                    </ListRow>
-                </Manager>
+                <ProductsManager/>
             </Card>
             <Card>
                 <div className={css.cardHeader}>Recent orders</div>
