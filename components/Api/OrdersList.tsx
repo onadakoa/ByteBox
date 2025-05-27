@@ -23,7 +23,7 @@ export const OrdersList = () => {
                 <ListCell centerHorizontal>Total price</ListCell>
             </ListRowHeader>
             {orders.map((order) => {
-                const date = new Date(order.created_at);
+                const date = new Date(order.created_at*1000);
                 const formatedDate = `${date.getHours()}:${date.getMinutes()} ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
 
                 return (
