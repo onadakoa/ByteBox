@@ -1,14 +1,14 @@
 "use client";
 import css from "./PaymentSummary.module.css";
-import {useCart} from "@/hooks/useCart";
-import {useAddress} from "@/hooks/useAddress";
-import {poppins} from "@/utils/font";
-import React, {useEffect, useState} from "react";
+import { useCart } from "@/hooks/useCart";
+import { useAddress } from "@/hooks/useAddress";
+import { poppins } from "@/utils/font";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/Button/Button";
-import {Loading} from "@/components/Loading/Loading";
-import {IShippingAddress} from "@/utils/ShippingAddress";
-import {useProvider} from "@/hooks/useProvider";
-import {IProvider} from "@/utils/Provider";
+import { Loading } from "@/components/Loading/Loading";
+import { IShippingAddress } from "@/utils/ShippingAddress";
+import { useProvider } from "@/hooks/useProvider";
+import { IProvider } from "@/utils/Provider";
 
 export const PaymentSummary = (props: {
     paymentMethodId?: number,
@@ -28,7 +28,27 @@ export const PaymentSummary = (props: {
     }, [props.paymentMethodId, props.billingAddressId, cartData, addressData, providers]);
 
     const onPay = async () => {
-        //TODO
+        if (!props.billingAddressId || !props.paymentMethodId) return;
+        const formdata = new FormData();
+        formdata.append("shipping_address_id", props.billingAddressId.toString());
+        formdata.append("provider_id", props.paymentMethodId.toString());
+        const res = await fetch("/api/checkout/index.php", {
+            credentials: "include",
+            method: "POST",
+            body: formdata,
+        })
+        if (!res.ok) {
+            try {
+                const json = await res.json();
+                console.error("onPay error: ", json)
+            } catch (e) {
+                console.error("onPay error:",e);
+            }
+        }
+
+        const json = await res.json();
+        console.log(json);
+        // TODO
     }
 
     return (
