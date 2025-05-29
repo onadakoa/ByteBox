@@ -6,10 +6,9 @@ import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
 import {ListCell} from "@/components/Table/ListCell";
 import {Manager} from "@/components/Admin/Manager";
 import Badge from "@/components/Badge/Badge";
-import {List} from "@/components/Table/List";
-import {ExpandableRow} from "@/components/Table/ExpandableRow";
 import {Stats} from "@/components/Api/Stats";
 import {ProductsManager} from "@/components/Admin/ProductsManager";
+import {CategoriesManager} from "@/components/Admin/CategoriesManager";
 
 export default function page() {
     return (<div className={[poppins.className, css.container].join(" ")}>
@@ -51,29 +50,7 @@ export default function page() {
             </Card>
             <Card>
                 <div className={css.cardHeader}>Categories</div>
-                <Manager gridTemplateColumns={"100px 1fr 125px"}>
-                    <ListRowHeader>
-                        <ListCell centerHorizontal>Id</ListCell>
-                        <ListCell>Name</ListCell>
-                        <ListCell centerHorizontal>Total Aliases</ListCell>
-                    </ListRowHeader>
-                    <ExpandableRow backgroundColor={"white"} content={
-                        <List gridTemplateColumns={"75px 1fr"}>
-                            <ListRowHeader>
-                                <ListCell centerHorizontal>Id</ListCell>
-                                <ListCell>Alias</ListCell>
-                            </ListRowHeader>
-                            <ListRow>
-                                <ListCell centerHorizontal>#2</ListCell>
-                                <ListCell>Computers</ListCell>
-                            </ListRow>
-                        </List>
-                    }>
-                        <ListCell centerHorizontal>#53</ListCell>
-                        <ListCell>Technology</ListCell>
-                        <ListCell centerHorizontal>3</ListCell>
-                    </ExpandableRow>
-                </Manager>
+                <CategoriesManager/>
             </Card>
         </div>
     </div>);
