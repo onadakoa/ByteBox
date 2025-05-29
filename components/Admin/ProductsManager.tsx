@@ -38,7 +38,7 @@ export const ProductsManager = (props: {
                     <ListCell>{product.name}</ListCell>
                     <ListCell>{product.price}zł</ListCell>
                     {!props.dontShowItemsAction && <ListCell centerHorizontal>
-                        <ManagerButton>Edit</ManagerButton>
+                        <ManagerButton href={`/products/create?id=${product.product_id}`}>Edit</ManagerButton>
                         {/*  TODO  */}
                     </ListCell>}
                 </ListRow>
