@@ -8,6 +8,7 @@ export function ManagerButton(props: {
     padding?: string,
     onClick?: () => void,
     href?: string,
+    disabled?: boolean,
 }) {
     const style: CSSProperties = {
         width: props.width,
@@ -17,12 +18,12 @@ export function ManagerButton(props: {
     if (props.href) {
         return (
             <Link href={props.href}>
-                <button className={css.container} style={style}>{props.children}</button>
+                <button className={css.container} style={style} disabled={props.disabled}>{props.children}</button>
             </Link>
         );
     }
 
     return (
-        <button onClick={props.onClick} className={css.container} style={style}>{props.children}</button>
+        <button onClick={props.onClick} className={css.container} style={style} disabled={props.disabled}>{props.children}</button>
     );
 }

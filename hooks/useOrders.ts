@@ -3,7 +3,7 @@ import {IOrder} from "@/utils/Order";
 import {OutPacket} from "@/utils/OutPacket";
 
 export default function useOrders() {
-    const {data, isLoading, error} = useSWR("/api/order/index.php");
+    const {data, isLoading, error} = useSWR("/order/index.php");
 
     if (error) {
         console.error("useOrders: ", error)
