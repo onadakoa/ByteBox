@@ -1,3 +1,42 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+}
+
+.banner {
+    background: linear-gradient(135deg, #4a90e2, #7e57c2);
+    color: white;
+    padding: 60px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.bannerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bannerContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.bannerContent p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .container {
     display: grid;
     grid-template-columns: max-content auto;
@@ -6,8 +45,48 @@
     gap: 30px;
 }
 
+.filterSection {
+    width: 100%;
+}
+
+.filterHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.productsSection {
+    width: 100%;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
 @media (width <= 768px) {
     .container {
         grid-template-columns: 1fr;
+    }
+
+    .banner {
+        padding: 40px 20px;
+    }
+
+    .bannerContent h1 {
+        font-size: 2rem;
+    }
+
+    .bannerContent p {
+        font-size: 1rem;
+    }
+
+    .mainContent {
+        padding: 0 10px 30px;
     }
 }
