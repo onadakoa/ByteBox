@@ -183,7 +183,7 @@ export const OrdersManager = (props: {
                         <Badge variant={getBadgeVariant(order.status)}>{order.status}</Badge>
                     </ListCell>
                     {!props.dontShowItemsAction && <ListCell centerHorizontal>
-                        {order.status !== OrderStatus.canceled && (
+                        {(
                             <>
                                 <select
                                     value={order.status}
@@ -194,7 +194,8 @@ export const OrdersManager = (props: {
                                         <option key={status} value={status}>{status}</option>
                                     ))}
                                 </select>
-                                <ManagerButton onClick={() => cancelOrder(order.order_id)}>Cancel</ManagerButton>
+                                {order.status !== OrderStatus.canceled &&
+                                    <ManagerButton onClick={() => cancelOrder(order.order_id)}>Cancel</ManagerButton>}
                             </>
                         )}
                     </ListCell>}
