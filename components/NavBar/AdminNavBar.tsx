@@ -21,6 +21,11 @@ export default function AdminNavBar(props: { children?: React.ReactNode }) {
                         Dashboard
                     </IconLabel>
                 </Link>
+                <Link href={"/orders"}>
+                    <IconLabel padding={"0.5rem 0"} ForceColumn IconComponent={<Symbol fontSize={"2rem"}>shopping_cart</Symbol>}>
+                        Orders
+                    </IconLabel>
+                </Link>
             </div>
             <div className={css.content}>{props.children}</div>
         </div>

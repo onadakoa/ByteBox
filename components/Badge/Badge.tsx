@@ -1,7 +1,7 @@
 import css from "./Badge.module.css";
 import React, {CSSProperties} from "react";
 
-export type variant = "default" | "success" | "warning" | "danger" | "pending";
+export type variant = "default" | "success" | "pending" | "error" | "info";
 
 export default function Badge(props: {
     children?: React.ReactNode,
@@ -24,6 +24,7 @@ export default function Badge(props: {
         padding: props.padding,
     }
     return (
-       <div className={[css.container, props.variant ? css[props.variant] : undefined, props.className].join(" ")} style={style}>{props.children}</div>
+        <div className={[css.container, props.variant ? css[props.variant] : undefined, props.className].join(" ")}
+             style={style}>{props.children}</div>
     );
 }

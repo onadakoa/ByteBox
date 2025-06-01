@@ -13,3 +13,19 @@
 .pending {
     --mainColor: #d4d418;
 }
+
+.success {
+    --mainColor: #18d418;
+}
+
+.error {
+    --mainColor: #d41818;
+}
+
+.info {
+    --mainColor: #1884d4;
+}
+
+.default {
+    --mainColor: gray;
+}

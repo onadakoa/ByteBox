@@ -8,7 +8,7 @@ export function ExpandableRow(props: RowProps & {
     backgroundColor?: string,
     indentation?: string,
 }) {
-    const [expanded, setExpanded] = React.useState(true);
+    const [expanded, setExpanded] = React.useState(false);
 
     const style: CSSProperties = {
         padding: props.padding
