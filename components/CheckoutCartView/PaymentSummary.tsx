@@ -61,6 +61,7 @@ export const PaymentSummary = (props: {
                 </ListItem>
                 <ListItem name={"Phone Number:"}><Later>{address?.phone_number}</Later></ListItem>
                 <ListItem name={"Taker:"}><Later>{(address) ? `${address.first_name} ${address.last_name}` : undefined}</Later></ListItem>
+                <ListItem name={"To pay:"}><Later>{cartData.info.total_price}zł</Later></ListItem>
             </div>
             <div>
                 <Button onClick={onPay}>Pay</Button>
