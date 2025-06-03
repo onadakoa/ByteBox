@@ -19,12 +19,13 @@ export default function useProductList(options: {
     if (options.price_in) params.append("price_in", options.price_in.toString());
     if (options.price_out) params.append("price_out", options.price_out.toString());
     if (options.sort) params.append("sort", options.sort);
-    const {data, isLoading, error} = useSWR(`/products/index.php?${params.toString()}`);
+    const {data, isLoading, error, mutate} = useSWR(`/products/index.php?${params.toString()}`);
 
     return {
         isLoading,
         error,
         data: data as OutPacket<IProduct[]>,
         products: data?.d as IProduct[],
+        mutate
     }
 }

@@ -1,11 +1,11 @@
 "use client";
-import {ManagerButton} from "@/components/Admin/ManagerButton";
-import ListRow, {ListRowHeader} from "@/components/Table/ListRow";
-import {ListCell} from "@/components/Table/ListCell";
-import {Manager} from "@/components/Admin/Manager";
-import React, {useEffect, useState} from "react";
-import {useDebounce} from "@/hooks/useDebounce";
-import {ICategory} from "@/utils/Category";
+import { ManagerButton } from "@/components/Admin/ManagerButton";
+import ListRow, { ListRowHeader } from "@/components/Table/ListRow";
+import { ListCell } from "@/components/Table/ListCell";
+import { Manager } from "@/components/Admin/Manager";
+import React, { useEffect, useState } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
+import { ICategory } from "@/utils/Category";
 
 export const CategoriesManager = (props: {
     dontShowItemsAction?: boolean,
@@ -17,42 +17,53 @@ export const CategoriesManager = (props: {
     const [error, setError] = useState<Error | null>(null);
     const debouncedSearch = useDebounce(search, 500);
 
+    const fetchCategories = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetch(`/api/categories/index.php${debouncedSearch ? `?search=${debouncedSearch}` : ''}`, {
+                credentials: "include",
+                method: "GET",
+            });
+            if (!response.ok) {
+                throw new Error("Failed to fetch categories");
+            }
+            const data = await response.json();
+            setCategories(data.d || []);
+            setError(null);
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+            setError(error instanceof Error ? error : new Error("Unknown error"));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     // Fetch categories
     useEffect(() => {
-        const fetchCategories = async () => {
-            setIsLoading(true);
-            try {
-                const response = await fetch(`/api/categories/index.php${debouncedSearch ? `?search=${debouncedSearch}` : ''}`, {
-                    credentials: "include",
-                    method: "GET",
-                });
-                if (!response.ok) {
-                    throw new Error("Failed to fetch categories");
-                }
-                const data = await response.json();
-                setCategories(data.d || []);
-                setError(null);
-            } catch (error) {
-                console.error("Error fetching categories:", error);
-                setError(error instanceof Error ? error : new Error("Unknown error"));
-            } finally {
-                setIsLoading(false);
-            }
-        };
 
         fetchCategories();
     }, [debouncedSearch]);
 
+    const onDelete = async (id: string) => {
+        const res = await fetch(`/api/categories/index.php?id=${id}`, {
+            credentials: "include",
+            method: "DELETE"
+        });
+
+        if (res.ok) fetchCategories();
+        else console.error("error deleting category");
+    }
+
     return (
         <Manager gridTemplateColumns={"100px 1fr 150px"}
-                 additionalButtons={
-                     <>
-                         <ManagerButton href="/categories/create">Add Category</ManagerButton>
-                     </>
-                 }
-                 searchValue={search}
-                 setSearchValue={(e) => setSearch(e.target.value)}
-                 dontShowAction={props.dontShowAction}
+            additionalButtons={
+                <>
+                    <ManagerButton href="/categories/create">Add Category</ManagerButton>
+                </>
+            }
+            searchValue={search}
+            setSearchValue={(e) => setSearch(e.target.value)}
+            dontShowAction={props.dontShowAction}
         >
             <ListRowHeader>
                 <ListCell>ID</ListCell>
@@ -77,6 +88,8 @@ export const CategoriesManager = (props: {
                     <ListCell>{category.name}</ListCell>
                     {!props.dontShowItemsAction && <ListCell centerHorizontal>
                         <ManagerButton href={`/categories/create?id=${category.id}`}>Edit</ManagerButton>
+                        -
+                        <ManagerButton onClick={() => { onDelete(category.id.toString()) }}>Delete</ManagerButton>
                     </ListCell>}
                 </ListRow>
             ))}

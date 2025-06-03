@@ -13,10 +13,22 @@ export const ProductsManager = (props: {
 }) => {
     const [search, setSearch] = React.useState("");
     const debouncedSearch = useDebounce(search, 500);
-    const {isLoading, error, products} = useProductList({search: debouncedSearch});
+    const {isLoading, error, products, mutate} = useProductList({search: debouncedSearch});
+
+    const onDelete = async (id: string) => {
+        const res = await fetch(`/api/products/index.php?id=${id}`, {
+            credentials: "include",
+            method: "DELETE"
+        })
+        if (res.ok) {
+            await mutate();
+        } else {
+            console.error("error deleting product")
+        }
+    }
 
     return (
-        <Manager gridTemplateColumns={"100px 1fr 100px 100px"}
+        <Manager gridTemplateColumns={"100px 1fr 100px 200px"}
                  additionalButtons={
                      <>
                          <ManagerButton href="/products/create">Add item</ManagerButton>
@@ -39,7 +51,8 @@ export const ProductsManager = (props: {
                     <ListCell>{product.price}zł</ListCell>
                     {!props.dontShowItemsAction && <ListCell centerHorizontal>
                         <ManagerButton href={`/products/create?id=${product.product_id}`}>Edit</ManagerButton>
-                        {/*  TODO  */}
+                        -
+                        <ManagerButton onClick={() => {onDelete(product.product_id.toString())}}>Delete</ManagerButton>
                     </ListCell>}
                 </ListRow>
             ))}
