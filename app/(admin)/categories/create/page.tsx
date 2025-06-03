@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import CategoryEditor from "@/components/Category/CategoryEditor";
 
 export default function CreateCategoryPage() {
     return (
         <div>
-            <CategoryEditor/>
+            <Suspense>
+                <CategoryEditor/>
+            </Suspense>
         </div>
     );
 }
