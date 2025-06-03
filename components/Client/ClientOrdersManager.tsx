@@ -73,11 +73,12 @@ export const ClientOrdersManager = () => {
     if (!orders || orders.length === 0) return <div>No orders found</div>;
 
     return (
-        <List className={css.list} gridTemplateColumns={"100px 1fr 150px 150px 150px"}>
+        <List className={css.list} gridTemplateColumns={"100px 1fr 150px 150px 150px 150px"}>
             <ListRowHeader>
                 <ListCell>#</ListCell>
                 <ListCell>Date</ListCell>
                 <ListCell>Total Price</ListCell>
+                <ListCell centerHorizontal>Author</ListCell>
                 <ListCell centerHorizontal>Status</ListCell>
                 <ListCell centerHorizontal>Action</ListCell>
             </ListRowHeader>
@@ -103,6 +104,7 @@ export const ClientOrdersManager = () => {
                     <ListCell>#{order.order_id}</ListCell>
                     <ListCell>{formatDate(order.created_at)}</ListCell>
                     <ListCell>{order.total_price} zł</ListCell>
+                    <ListCell centerHorizontal>{order.first_name} {order.last_name}</ListCell>
                     <ListCell centerHorizontal>
                         <Badge variant={getBadgeVariant(order.status)}>{order.status}</Badge>
                     </ListCell>

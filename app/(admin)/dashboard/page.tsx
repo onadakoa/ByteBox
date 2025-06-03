@@ -14,7 +14,7 @@ export default function page() {
             <GridItem header={"Total products"}><Stats>product_count</Stats> products</GridItem>
             <GridItem header={"Orders"}><Stats>order_count</Stats> orders</GridItem>
             <GridItem header={"Profit"}>
-                <Stats>avg_product_price</Stats> zł
+                <Stats>profit</Stats> zł
             </GridItem>
         </div>
         <div className={[css.section, css.section2].join(" ")}>

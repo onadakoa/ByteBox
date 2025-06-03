@@ -133,7 +133,7 @@ export const OrdersManager = (props: {
     };
 
     return (
-        <Manager gridTemplateColumns={"100px 1fr 150px 150px 200px"}
+        <Manager gridTemplateColumns={"100px 1fr 150px 150px 150px 200px"}
                  searchValue={search}
                  setSearchValue={(e) => setSearch(e.target.value)}
                  dontShowAction={props.dontShowAction}
@@ -142,6 +142,7 @@ export const OrdersManager = (props: {
                 <ListCell>#</ListCell>
                 <ListCell>Date</ListCell>
                 <ListCell>Total Price</ListCell>
+                <ListCell>Author</ListCell>
                 <ListCell centerHorizontal>Status</ListCell>
                 {!props.dontShowItemsAction && <ListCell centerHorizontal>Action</ListCell>}
             </ListRowHeader>
@@ -179,6 +180,7 @@ export const OrdersManager = (props: {
                     <ListCell>#{order.order_id}</ListCell>
                     <ListCell>{formatDate(order.created_at)}</ListCell>
                     <ListCell>{order.total_price} zł</ListCell>
+                    <ListCell>{order.first_name} {order.last_name}</ListCell>
                     <ListCell centerHorizontal>
                         <Badge variant={getBadgeVariant(order.status)}>{order.status}</Badge>
                     </ListCell>
