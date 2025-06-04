@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Table/List.module.css"],"sourcesContent":[".container {\n    border: 2px solid var(--stroke-color);\n    display: flex;\n    flex-direction: column;\n\n    border-radius: 5px;\n\n    overflow: auto;\n}\n.container > * {\n    min-width: min-content;\n}\n\n\n"],"names":[],"mappings":"AAAA,wIASA"}

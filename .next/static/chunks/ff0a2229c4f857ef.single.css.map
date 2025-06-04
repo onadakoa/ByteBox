@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Filter/FilterBoxItem.module.css"],"sourcesContent":[".container {\n    padding: 5px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: start;\n    gap: 15px;\n\n    width: 260px;\n}\n\n.container>div {\n    width: 100%;\n}"],"names":[],"mappings":"AAAA,6JAWA"}

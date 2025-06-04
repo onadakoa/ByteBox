@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Button/IconButton.module.css"],"sourcesContent":[".container {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    gap: 0.1rem;\n    padding: 5px;\n}\n.container:hover {\n    cursor: pointer;\n}"],"names":[],"mappings":"AAAA,yIAQA"}

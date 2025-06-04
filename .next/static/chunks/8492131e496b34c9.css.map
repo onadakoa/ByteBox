@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 0, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/auth/settings/page.module.css"],"sourcesContent":["\n.mainContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n.container {\n    display: flex;\n    flex-direction: column;\n    align-content: center;\n    width: 500px;\n    gap: 30px;\n}\n\n.container form {\n    font-weight: 400;\n    font-size: 1.0rem;\n}\n\n.container form input {\n    font-size: 1rem;\n}\n\n\n@media (width < 550px) {\n    .container {\n        width: 100vw;\n        padding: 0 15px;\n        box-sizing: border-box;\n    }\n}"],"names":[],"mappings":"AACA,0FAMA,6GAQA,oEAKA,0DAKA,qBACI"}},
+    {"offset": {"line": 2, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/components/Settings/UserSettings.module.css"],"sourcesContent":[".container {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n}\n\n.action {\n    display: flex;\n    flex-direction: column;\n    gap: 5px;\n}"],"names":[],"mappings":"AAAA,oFAMA"}}]
+}

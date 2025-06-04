@@ -1,0 +1,15 @@
+const CHUNK_PUBLIC_PATH = "server/app/(admin)/dashboard/page.js";
+const runtime = require("../../../chunks/ssr/[turbopack]_runtime.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__4389a413._.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__90c1acbf._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_b1c667a9._.js");
+runtime.loadChunk("server/chunks/ssr/app_8e9b12de._.js");
+runtime.loadChunk("server/chunks/ssr/_98f1f50a._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_96715ba7._.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_forbidden-error_ea7ea172.js");
+runtime.loadChunk("server/chunks/ssr/node_modules_next_dist_client_components_unauthorized-error_c8949b27.js");
+runtime.loadChunk("server/chunks/ssr/[root-of-the-server]__5f78413f._.js");
+runtime.loadChunk("server/chunks/ssr/_2cce663a._.js");
+runtime.getOrInstantiateRuntimeModule(97401, CHUNK_PUBLIC_PATH);
+runtime.getOrInstantiateRuntimeModule(25696, CHUNK_PUBLIC_PATH);
+module.exports = runtime.getOrInstantiateRuntimeModule(25696, CHUNK_PUBLIC_PATH).exports;

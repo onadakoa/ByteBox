@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Table/ListCell.module.css"],"sourcesContent":[".container {\n    box-sizing: border-box;\n    padding: 10px;\n    display: flex;\n    align-items: center;\n}\n\n@media (width < 650px) {\n    .container {\n        padding: 3px;\n    }\n}"],"names":[],"mappings":"AAAA,uGAOA,qBACI"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Table/ListRow.module.css"],"sourcesContent":[".container {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n}\n\n.header {\n    border-bottom: 2px solid var(--stroke-color);\n\n    font-weight: 600;\n}"],"names":[],"mappings":"AAAA,yGAKA"}

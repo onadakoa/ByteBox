@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Table/Table.module.css"],"sourcesContent":[".container {\n    display: grid;\n    grid-template-columns: minmax(150px, max-content) 1fr;\n    align-items: center;\n    row-gap: 10px;\n}"],"names":[],"mappings":"AAAA"}

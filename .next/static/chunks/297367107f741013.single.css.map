@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Field/Field.module.css"],"sourcesContent":[".container {\n    background-color: var(--secondary-color);\n    padding: 15px 10px;\n    border-radius: 10px;\n    box-shadow: var(--feed-shadow);\n    box-sizing: border-box;\n}"],"names":[],"mappings":"AAAA"}

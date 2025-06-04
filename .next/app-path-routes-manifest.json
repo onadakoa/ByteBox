@@ -1,0 +1,15 @@
+{
+  "/(admin)/categories/create/page": "/categories/create",
+  "/(admin)/categories/page": "/categories",
+  "/(admin)/dashboard/page": "/dashboard",
+  "/(admin)/orders/page": "/orders",
+  "/(admin)/products/create/page": "/products/create",
+  "/(client)/cart/page": "/cart",
+  "/(client)/page": "/",
+  "/(client)/product/page": "/product",
+  "/_not-found/page": "/_not-found",
+  "/auth/orders/page": "/auth/orders",
+  "/auth/page": "/auth",
+  "/auth/settings/page": "/auth/settings",
+  "/icon.svg/route": "/icon.svg"
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Settings/UserSettings.module.css"],"sourcesContent":[".container {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n}\n\n.action {\n    display: flex;\n    flex-direction: column;\n    gap: 5px;\n}"],"names":[],"mappings":"AAAA,oFAMA"}

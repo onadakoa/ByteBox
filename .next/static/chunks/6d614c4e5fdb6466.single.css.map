@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Field/Card.module.css"],"sourcesContent":[".container {\n    background-color: white;\n    padding: 15px;\n    border: 1px solid var(--stroke-color);\n    border-radius: .5rem;\n}"],"names":[],"mappings":"AAAA"}

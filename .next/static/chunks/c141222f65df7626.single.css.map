@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/components/Admin/MiniSearchBar.module.css"],"sourcesContent":[".input {\n    appearance: none;\n    outline: none;\n    border: 2px solid var(--stroke-color);\n    border-radius: 5px;\n    padding: 7px;\n    font-size: 0.9rem;\n\n    width: 100%;\n    box-sizing: border-box;\n}"],"names":[],"mappings":"AAAA"}

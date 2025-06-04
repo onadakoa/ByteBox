@@ -1,0 +1,1 @@
+{"version":3,"sources":["turbopack:///[project]/app/(client)/layout.module.css"],"sourcesContent":[".container {\n    padding: 30px 50px;\n    box-sizing: border-box;\n}\n\n@media (width <= 768px) {\n    .container {\n        box-sizing: border-box;\n        padding: 25px 10px;\n    }\n}"],"names":[],"mappings":"AAAA,0EAKA,sBACI"}

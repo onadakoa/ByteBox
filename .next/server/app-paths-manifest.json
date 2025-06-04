@@ -1,0 +1,15 @@
+{
+  "/(admin)/categories/create/page": "app/(admin)/categories/create/page.js",
+  "/(admin)/categories/page": "app/(admin)/categories/page.js",
+  "/(admin)/dashboard/page": "app/(admin)/dashboard/page.js",
+  "/(admin)/orders/page": "app/(admin)/orders/page.js",
+  "/(admin)/products/create/page": "app/(admin)/products/create/page.js",
+  "/(client)/cart/page": "app/(client)/cart/page.js",
+  "/(client)/page": "app/(client)/page.js",
+  "/(client)/product/page": "app/(client)/product/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/auth/orders/page": "app/auth/orders/page.js",
+  "/auth/page": "app/auth/page.js",
+  "/auth/settings/page": "app/auth/settings/page.js",
+  "/icon.svg/route": "app/icon.svg/route.js"
+}
