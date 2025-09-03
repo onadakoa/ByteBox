@@ -1,23 +1,16 @@
 import css from "./page.module.css"
 import FilterBox from "@/components/Filter/FilterBox";
-import {Suspense} from "react";
+import { Suspense } from "react";
 import FeedController from "@/components/Feed/FeedController";
-import {ApiFeed} from "@/components/Api/ApiFeed";
-import {Header} from "@/components/Header/Header";
-import {Card} from "@/components/Field/Card";
-import {poppins} from "@/utils/font";
+import { ApiFeed } from "@/components/Api/ApiFeed";
+import { Header } from "@/components/Header/Header";
+import { Card } from "@/components/Field/Card";
+import { poppins } from "@/utils/font";
 import Symbol from "@/components/MaterialSymbols/Symbol";
 
 export default function Page() {
     return (
         <div className={[css.pageContainer, poppins.className].join(" ")}>
-            <div className={css.banner}>
-                <div className={css.bannerContent}>
-                    <h1>Welcome</h1>
-                    <p>Discover amazing products</p>
-                </div>
-            </div>
-
             <div className={css.mainContent}>
                 <Header size="1.8rem" padding="0 0 20px 0">Our Products</Header>
 
@@ -29,7 +22,7 @@ export default function Page() {
                                 <span>Filters</span>
                             </div>
                             <Suspense fallback={<div>Loading filters...</div>}>
-                                <FilterBox/>
+                                <FilterBox />
                             </Suspense>
                         </Card>
                     </div>
@@ -37,7 +30,7 @@ export default function Page() {
                     <div className={css.productsSection}>
                         <FeedController>
                             <Suspense fallback={<div className={css.loading}>Loading products...</div>}>
-                                <ApiFeed/>
+                                <ApiFeed />
                             </Suspense>
                         </FeedController>
                     </div>
