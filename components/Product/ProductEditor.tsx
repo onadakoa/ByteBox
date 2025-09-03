@@ -1,15 +1,15 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {Card} from "@/components/Field/Card";
-import {poppins} from "@/utils/font";
+import React, { useEffect, useState } from "react";
+import { Card } from "@/components/Field/Card";
+import { poppins } from "@/utils/font";
 import css from "./ProductEditor.module.css";
-import {ICategory} from "@/utils/Category";
+import { ICategory } from "@/utils/Category";
 import Image from "next/image";
-import {OutPacket} from "@/utils/OutPacket";
-import {useSearchParams} from "next/navigation";
-import {IProduct, Product} from "@/utils/Product";
+import { OutPacket } from "@/utils/OutPacket";
+import { useSearchParams } from "next/navigation";
+import { IProduct, Product } from "@/utils/Product";
 import useUser from "@/hooks/useUser";
-import {mutate} from "swr";
+import { mutate } from "swr";
 
 export type file = { file_id: number, id: number };
 
@@ -18,7 +18,7 @@ export default function ProductEditor() {
     const id = SearchParams.get("id");
     const [mode, setMode] = useState<"create" | "edit">(((id) ? "edit" : "create"));
 
-    const {user} = useUser();
+    const { user } = useUser();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -159,7 +159,6 @@ export default function ProductEditor() {
                 console.log(attachmentData);
             }
 
-            // Then create the product
             const productData = {
                 name,
                 description,
@@ -188,9 +187,7 @@ export default function ProductEditor() {
                 throw new Error("Failed to create product");
             }
 
-            // Success
             setMessage("Product created successfully!");
-            // Reset form
             setName("");
             setDescription("");
             setPrice("");
@@ -226,7 +223,7 @@ export default function ProductEditor() {
                                                 alt={`Product preview ${index + 1}`}
                                                 width={200}
                                                 height={200}
-                                                style={{objectFit: "cover"}}
+                                                style={{ objectFit: "cover" }}
                                             />
                                         </div>
                                     ))
