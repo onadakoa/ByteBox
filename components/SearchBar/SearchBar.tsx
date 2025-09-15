@@ -80,7 +80,7 @@ export default function SearchBar() {
                 </div>
             </div>
             <div className={css.popup} style={popupStyle}>
-                <Result type={ResultType.search} phrase={value}/>
+                <Result type={ResultType.search} phrase={value} href={`/?search=${value}`}/>
                 {
                     dynamicSearchEntries.map((v, i) => {
                         if (v.type == "product") {
