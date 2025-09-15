@@ -9,6 +9,7 @@ import Result, {ResultType} from "@/components/SearchBar/SearchResult";
 import {DynamicSearch, FilledDynamicProductSearch, FilledDynamicSearch} from "@/utils/DynamicSearch";
 import {API_HOSTNAME} from "@/utils/api";
 import {OutPacket} from "@/utils/OutPacket";
+import {SearchBarProductResult} from "@/components/SearchBar/SearchBarProductResult";
 
 const poppins = Poppins({weight: "400", subsets: ["latin"]})
 
@@ -33,7 +34,7 @@ export default function SearchBar() {
         router.push("/?" + query.toString())
     }
     const onDynamicSearch = async () => {
-        let res = await fetch(API_HOSTNAME+"/search?search=" + debouncedValue.toString());
+        let res = await fetch(API_HOSTNAME + "/search?search=" + debouncedValue.toString());
         let json = await res.json() as OutPacket<DynamicSearch[]>;
 
         setDynamicSearchEntries(json.d);
@@ -79,20 +80,12 @@ export default function SearchBar() {
             </div>
             <div className={css.popup} style={popupStyle}>
                 <Result type={ResultType.search} phrase={value}/>
-                <Result type={ResultType.product} phrase="product" price="125"/>
-                <Result type={ResultType.category} phrase="category"/>
                 {
-                    dynamicSearchEntries.map((v,i) => {
-                        let [price,setPrice] = useState<undefined|string>(undefined);
-                        if (v.type == "product"){
-                            (async () => {
-                                let prod = FilledDynamicProductSearch.getFilled(v) as FilledDynamicProductSearch;
-                                // prod.getPrice().then((v) => {
-                                //     setPrice(v);
-                                // })
-                            })();
-                        }
-                        return (<Result type={ResultType[v.type]} phrase={v.name} price={price}/>);
+                    dynamicSearchEntries.map((v, i) => {
+                        if (v.type == "product") {
+                            return (<SearchBarProductResult key={i} phrase={v.name} id={v.id} href={`/product?id=${v.id}`}/>);
+                        } else
+                            return (<Result key={i} type={ResultType[v.type]} phrase={v.name} href={`/?category=${v.id}`}/>);
                     })
                 }
             </div>
