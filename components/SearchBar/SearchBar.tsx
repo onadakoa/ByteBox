@@ -21,6 +21,7 @@ export default function SearchBar() {
     const [value, setValue] = useState(searchParams.get("search") || "");
     const debouncedValue = useDebounce(value, 500);
     const [isInputFocused, setFocus] = useState(false);
+    const isInputFocusedDebounced = useDebounce(isInputFocused, 1000);
 
     const searchContainer = useRef<HTMLDivElement>(null)
 
@@ -50,7 +51,7 @@ export default function SearchBar() {
 
     const popupStyle: CSSProperties = {
         width: `${(searchContainer.current?.clientWidth || 100) - 10}px`,
-        display: (isInputFocused && value.length > 0) ? undefined : "none",
+        display: (isInputFocusedDebounced && value.length > 0) ? undefined : "none",
     }
 
     return (
