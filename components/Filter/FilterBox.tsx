@@ -47,6 +47,10 @@ export default function CategoryBox() {
             );
         })();
     }, []);
+
+    useEffect(() => {
+        setCat(searchParams.get("category") || "0");
+    }, [searchParams]);
     const sorts: SelectOption[] = [
         {value: "P_ASC", span: "Cena (rosnąco)",},
         {value: "P_DESC", span: "Cena (malejąco)",}
