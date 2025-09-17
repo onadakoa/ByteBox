@@ -9,7 +9,7 @@ function Item(props: { href: string, active?: boolean, onClick?: () => void }) {
         border: "2px solid var(--primary-color)"
     }
     return (<div style={(props.active) ? style : undefined} onClick={props.onClick}>
-        <Image src={props.href} alt={"picture of product"} fill={true}/>
+        <Image src={props.href} alt={"picture of product"} fill style={{objectFit: "contain"}}/>
     </div>);
 }
 
@@ -38,7 +38,7 @@ export function ImageSelector(props: { attachment_id?: number }) {
             <div className={css.main}>
                 <div>
                     <div>
-                        <Image src={images[pointer]} alt={"picture of product"} fill={true}/>
+                        <Image src={images[pointer]} alt={"picture of product"} fill style={{objectFit: "contain"}}/>
                     </div>
                 </div>
             </div>

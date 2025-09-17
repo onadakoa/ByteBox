@@ -8,6 +8,8 @@ import useProduct from "@/hooks/useProduct";
 import {useEffect, useState} from "react";
 import {Loading} from "@/components/Loading/Loading";
 import {Product} from "@/utils/Product";
+import useUser from "@/hooks/useUser";
+import {mutate} from "swr";
 
 const poppins = Poppins({weight: ["400", "500", "600", "700", "900"], subsets: ["latin"]})
 const roboto = Roboto({weight: ["400", "500", "700", "900"], subsets: ["latin"]})
@@ -25,6 +27,7 @@ function DetailItem({name, value}: { name: string, value: any }) {
 
 export function ProductView(props: {}) {
     const router = useRouter();
+    const {isLoggedIn} = useUser();
     const searchParams = useSearchParams();
     const id = Number(searchParams.get("id"));
     const {product, error, isLoading} = useProduct(id);
@@ -65,6 +68,7 @@ export function ProductView(props: {}) {
             return;
         }
 
+        await mutate("/cart/index.php");
         setIsFetching(false)
     }
 
@@ -92,8 +96,12 @@ export function ProductView(props: {}) {
                         {(isLoading || error) ? <Loading>-</Loading> : (product.price + " zł")}
                     </div>
                     <div>
-                        <Button onClick={add} backgroundColor={"var(--primary-color)"}>{(isLoading || error || isFetching || product.stock <= 0) ?
-                            <Loading>-</Loading> : "Add to cart"}</Button>
+                        {
+                            (isLoggedIn) && (
+                                <Button onClick={add} backgroundColor={"var(--primary-color)"}>{(isLoading || error || isFetching || product.stock <= 0) ?
+                                    <Loading>-</Loading> : "Add to cart"}</Button>
+                            )
+                        }
                     </div>
                 </div>
             </div>

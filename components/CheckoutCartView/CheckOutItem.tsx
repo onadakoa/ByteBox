@@ -36,7 +36,7 @@ export default function CheckOutItem(props: {
     return (
         <div className={css.container}>
             <div className={css.imageContainer}>
-                <Image src={props.imageURL || "https://placehold.co/600x600"} alt={"picture of product"} fill={true}/>
+                <Image src={props.imageURL || "https://placehold.co/600x600"} alt={"picture of product"} fill style={{objectFit: "contain"}}/>
             </div>
             <div className={css.content}>
                 <div className={css.description}>

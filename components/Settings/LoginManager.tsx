@@ -41,10 +41,10 @@ export const LoginManager = () => {
                 onClick={logOut}
                 backgroundColor={"var(--yellow-color)"}
             >Log Out</Button>
-            <Button
-                onClick={deleteAccount}
-                backgroundColor={"var(--red-color)"}
-            >Delete account</Button>
+            {/*<Button*/}
+            {/*    onClick={deleteAccount}*/}
+            {/*    backgroundColor={"var(--red-color)"}*/}
+            {/*>Delete account</Button>*/}
         </div>
     );
 };

@@ -9,6 +9,9 @@ import { Loading } from "@/components/Loading/Loading";
 import { IShippingAddress } from "@/utils/ShippingAddress";
 import { useProvider } from "@/hooks/useProvider";
 import { IProvider } from "@/utils/Provider";
+import {useRouter} from "next/navigation";
+import {useModal} from "@/utils/ModalContext";
+import {mutate} from "swr";
 
 export const PaymentSummary = (props: {
     paymentMethodId?: number,
@@ -19,6 +22,8 @@ export const PaymentSummary = (props: {
     const providers = useProvider();
     const [address, setAddress] = useState<IShippingAddress | undefined>(undefined);
     const [provider, setProvider] = useState<IProvider | undefined>(undefined);
+    const router = useRouter();
+    const [show, close] = useModal();
 
     useEffect(() => {
         if (cartData.isLoading || addressData.isLoading || providers.isLoading) return;
@@ -48,7 +53,10 @@ export const PaymentSummary = (props: {
 
         const json = await res.json();
         console.log(json);
-        // TODO
+
+        close();
+        await mutate("/cart/index.php");
+        router.refresh();
     }
 
     return (

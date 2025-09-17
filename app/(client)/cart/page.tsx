@@ -18,15 +18,15 @@ export default function Page() {
                 <div className={css.upper}>
                     <span style={poppins.style}>Cart</span>
                     <div className={roboto.className}>
-                        <IconButton
-                            icon={(
-                                <Symbol
-                                    fontSize={"1.5rem"}
-                                    wght={200}
-                                >delete_forever</Symbol>
-                            )}
-                            onClick={undefined}
-                        >clear all</IconButton>
+                        {/*<IconButton*/}
+                        {/*    icon={(*/}
+                        {/*        <Symbol*/}
+                        {/*            fontSize={"1.5rem"}*/}
+                        {/*            wght={200}*/}
+                        {/*        >delete_forever</Symbol>*/}
+                        {/*    )}*/}
+                        {/*    onClick={undefined}*/}
+                        {/*>clear all</IconButton>*/}
                     </div>
                 </div>
                 <div className={css.content}>
