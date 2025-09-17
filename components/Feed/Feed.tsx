@@ -20,7 +20,7 @@ export default function Feed(
         <Link href={props.productHref || "/"}>
             <div className={css.top}>
                 <div>
-                    <Image src={props.imageSrc || "https://placehold.co/600x600"} alt={"image of product"} fill/>
+                    <Image src={props.imageSrc || "https://placehold.co/600x600"} alt={"image of product"} style={{objectFit: "contain"}} fill/>
                 </div>
                 <span style={poppins.style}>{props.title}</span>
             </div>

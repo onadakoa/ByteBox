@@ -25,13 +25,14 @@
 }
 
 .top > div {
-    height: 150px;
+    height: 200px;
 
     width: 100%;
     position: relative;
     background: transparent;
     border-radius: 5px;
     overflow: hidden;
+    text-align: center;
 }
 
 .bottom {
